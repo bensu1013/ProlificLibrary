@@ -13,6 +13,8 @@
 		FD4FEF5D1EA546A80023216B /* ProlificLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF5B1EA546A80023216B /* ProlificLibrary.xcdatamodeld */; };
 		FD4FEF5F1EA546A80023216B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4FEF5E1EA546A80023216B /* Assets.xcassets */; };
 		FD4FEF621EA546A80023216B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4FEF601EA546A80023216B /* LaunchScreen.storyboard */; };
+		FD4FEF6A1EA547CC0023216B /* ProlificAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF691EA547CC0023216B /* ProlificAPI.swift */; };
+		FD4FEF6C1EA54A520023216B /* BooksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF6B1EA54A520023216B /* BooksManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FD4FEF5E1EA546A80023216B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD4FEF611EA546A80023216B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD4FEF631EA546A80023216B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD4FEF691EA547CC0023216B /* ProlificAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProlificAPI.swift; sourceTree = "<group>"; };
+		FD4FEF6B1EA54A520023216B /* BooksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				FD4FEF541EA546A80023216B /* AppDelegate.swift */,
 				FD4FEF561EA546A80023216B /* ViewController.swift */,
+				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
+				FD4FEF6B1EA54A520023216B /* BooksManager.swift */,
 				FD4FEF581EA546A80023216B /* Main.storyboard */,
 				FD4FEF5E1EA546A80023216B /* Assets.xcassets */,
 				FD4FEF601EA546A80023216B /* LaunchScreen.storyboard */,
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD4FEF571EA546A80023216B /* ViewController.swift in Sources */,
+				FD4FEF6A1EA547CC0023216B /* ProlificAPI.swift in Sources */,
+				FD4FEF6C1EA54A520023216B /* BooksManager.swift in Sources */,
 				FD4FEF5D1EA546A80023216B /* ProlificLibrary.xcdatamodeld in Sources */,
 				FD4FEF551EA546A80023216B /* AppDelegate.swift in Sources */,
 			);
