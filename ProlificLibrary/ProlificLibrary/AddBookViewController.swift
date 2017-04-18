@@ -13,19 +13,18 @@ class AddBookViewController: UIViewController {
     
     @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    @IBOutlet weak var authorTextField: UITextField!
+    
+    @IBOutlet weak var publisherTextField: UITextField!
+    
+    @IBOutlet weak var categoryTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let testBook = [
-            "author": "Grandolf The Pure",
-            "categories": "Elfotica",
-            "title": "50 Shades of Bilbo",
-            "publisher": "Shirelastics",
-        ]
-        ProlificAPI.addNew(testBook) { (completed) in
-            print("nice")
-        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,5 +37,22 @@ class AddBookViewController: UIViewController {
             
         }
     }
-
+    @IBAction func submitButtonAction(_ sender: UIButton) {
+        if titleTextField.text == "" || authorTextField.text == "" {
+            
+        } else {
+            let bookData: [String: Any] = ["title": titleTextField.text,
+                            "author": authorTextField.text,
+                            "publisher": publisherTextField.text,
+                            "categories": categoryTextField.text]
+            ProlificAPI.addNew(bookData, completion: { (completed) in
+                if completed {
+                    self.dismiss(animated: true, completion: { 
+                        
+                    })
+                }
+            })
+        }
+    }
+    
 }

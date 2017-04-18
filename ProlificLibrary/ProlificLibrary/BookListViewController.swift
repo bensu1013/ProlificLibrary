@@ -16,9 +16,7 @@ class BookListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProlificAPI.deleteAllBooks { (complete) in
-            
-        }
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -47,6 +45,10 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookManager.list.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.height / 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

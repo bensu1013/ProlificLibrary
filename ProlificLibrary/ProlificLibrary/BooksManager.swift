@@ -28,9 +28,3 @@ class BookManager {
     
 }
 
-
-
-
-//
-//"lastCheckedOut": null,
-//"lastCheckedOutBy": null,
