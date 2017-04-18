@@ -8,51 +8,27 @@
 
 import Foundation
 
-class BooksManager {
+class BookManager {
     
-    static var main = BooksManager()
+    static var main = BookManager()
     private init() {}
     
     var list = [Book]()
     
-    func loadBooks() {
-        
+    func loadBooks(handler: @escaping () -> () ) {
         ProlificAPI.getAllBooks { (json) in
-            
+            self.list.removeAll()
             for data in json {
-                
-                dump(data)
                 let book = Book(data: data)
-                
+                self.list.append(book)
             }
-            
-        }
-        
-    }
-    
-}
-
-class Book {
-
-    
-    var author:     String?
-    var title:      String?
-    var url:        String?
-    var id:         Int?
-    var categories: String?
-    var publisher:  String?
-    var checkedOut: String?
-    var checkedBy:  String?
-    
-    init(data: [String:Any]) {
-        if let auth = data["author"] as? String {
-            print(auth)
-        } else {
-            print("nope")
+            handler()
         }
     }
     
 }
+
+
 
 
 //

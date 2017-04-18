@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		FD4FEF551EA546A80023216B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF541EA546A80023216B /* AppDelegate.swift */; };
-		FD4FEF571EA546A80023216B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF561EA546A80023216B /* ViewController.swift */; };
+		FD4FEF571EA546A80023216B /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF561EA546A80023216B /* BookListViewController.swift */; };
 		FD4FEF5A1EA546A80023216B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4FEF581EA546A80023216B /* Main.storyboard */; };
 		FD4FEF5D1EA546A80023216B /* ProlificLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF5B1EA546A80023216B /* ProlificLibrary.xcdatamodeld */; };
 		FD4FEF5F1EA546A80023216B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4FEF5E1EA546A80023216B /* Assets.xcassets */; };
 		FD4FEF621EA546A80023216B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4FEF601EA546A80023216B /* LaunchScreen.storyboard */; };
 		FD4FEF6A1EA547CC0023216B /* ProlificAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF691EA547CC0023216B /* ProlificAPI.swift */; };
 		FD4FEF6C1EA54A520023216B /* BooksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF6B1EA54A520023216B /* BooksManager.swift */; };
+		FD4FEF6E1EA575540023216B /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF6D1EA575540023216B /* Book.swift */; };
+		FD4FEF701EA5ADCB0023216B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF6F1EA5ADCB0023216B /* DetailViewController.swift */; };
+		FD4FEF721EA5AED80023216B /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF711EA5AED80023216B /* AddBookViewController.swift */; };
+		FD4FEF741EA5B2000023216B /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD4FEF511EA546A80023216B /* ProlificLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProlificLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4FEF541EA546A80023216B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD4FEF561EA546A80023216B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD4FEF561EA546A80023216B /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
 		FD4FEF591EA546A80023216B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD4FEF5C1EA546A80023216B /* ProlificLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProlificLibrary.xcdatamodel; sourceTree = "<group>"; };
 		FD4FEF5E1EA546A80023216B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,6 +32,10 @@
 		FD4FEF631EA546A80023216B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD4FEF691EA547CC0023216B /* ProlificAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProlificAPI.swift; sourceTree = "<group>"; };
 		FD4FEF6B1EA54A520023216B /* BooksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksManager.swift; sourceTree = "<group>"; };
+		FD4FEF6D1EA575540023216B /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		FD4FEF6F1EA5ADCB0023216B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FD4FEF711EA5AED80023216B /* AddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +69,13 @@
 			isa = PBXGroup;
 			children = (
 				FD4FEF541EA546A80023216B /* AppDelegate.swift */,
-				FD4FEF561EA546A80023216B /* ViewController.swift */,
+				FD4FEF561EA546A80023216B /* BookListViewController.swift */,
+				FD4FEF6F1EA5ADCB0023216B /* DetailViewController.swift */,
+				FD4FEF711EA5AED80023216B /* AddBookViewController.swift */,
+				FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */,
 				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
 				FD4FEF6B1EA54A520023216B /* BooksManager.swift */,
+				FD4FEF6D1EA575540023216B /* Book.swift */,
 				FD4FEF581EA546A80023216B /* Main.storyboard */,
 				FD4FEF5E1EA546A80023216B /* Assets.xcassets */,
 				FD4FEF601EA546A80023216B /* LaunchScreen.storyboard */,
@@ -146,11 +158,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4FEF571EA546A80023216B /* ViewController.swift in Sources */,
+				FD4FEF571EA546A80023216B /* BookListViewController.swift in Sources */,
+				FD4FEF721EA5AED80023216B /* AddBookViewController.swift in Sources */,
 				FD4FEF6A1EA547CC0023216B /* ProlificAPI.swift in Sources */,
+				FD4FEF6E1EA575540023216B /* Book.swift in Sources */,
+				FD4FEF741EA5B2000023216B /* BookListTableViewCell.swift in Sources */,
 				FD4FEF6C1EA54A520023216B /* BooksManager.swift in Sources */,
 				FD4FEF5D1EA546A80023216B /* ProlificLibrary.xcdatamodeld in Sources */,
 				FD4FEF551EA546A80023216B /* AppDelegate.swift in Sources */,
+				FD4FEF701EA5ADCB0023216B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

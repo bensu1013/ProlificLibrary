@@ -23,10 +23,10 @@ struct ProlificAPI {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: unwrappedUrl) { (data, response, error) in
             
-            guard let uData = data else { return }
+            guard let unwrappedData = data else { return }
             
             do {
-                let responseJSON = try JSONSerialization.jsonObject(with:uData, options: []) as! [[String:Any]]
+                let responseJSON = try JSONSerialization.jsonObject(with:unwrappedData, options: []) as! [[String:Any]]
                 completion(responseJSON)
             } catch {
                 
