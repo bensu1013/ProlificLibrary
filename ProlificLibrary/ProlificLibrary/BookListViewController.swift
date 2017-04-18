@@ -35,6 +35,17 @@ class BookListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? DetailViewController,
+            let index = sender as? IndexPath {
+            
+            let chosenBook = bookManager.list[index.row]
+            dest.book = chosenBook
+            
+        }
+    }
+    
 }
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,7 +72,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        performSegue(withIdentifier: "detailSegue", sender: indexPath)
     }
     
 }

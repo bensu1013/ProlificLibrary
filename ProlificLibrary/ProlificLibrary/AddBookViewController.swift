@@ -22,14 +22,10 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     
     private var fieldsHasText: Bool {
-        if titleTextField.text != "" ||
-            authorTextField.text != "" ||
-            publisherTextField.text != "" ||
-            categoryTextField.text != "" {
-            return true
-        } else {
-            return false
-        }
+        return titleTextField.hasText ||
+            authorTextField.hasText ||
+            publisherTextField.hasText ||
+            categoryTextField.hasText ? true : false
     }
     
     override func viewDidLoad() {
@@ -49,11 +45,10 @@ class AddBookViewController: UIViewController {
         } else {
             self.dismiss(animated: true)
         }
-        
     }
     
     @IBAction func submitButtonAction(_ sender: UIButton) {
-        if titleTextField.text == "" || authorTextField.text == "" {
+        if !titleTextField.hasText || !authorTextField.hasText {
             showSubmitAlert()
         } else {
             let bookData: [String: Any] = ["title": titleTextField.text,

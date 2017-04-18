@@ -10,26 +10,50 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var authorLabel: UILabel!
+    
+    @IBOutlet weak var publisherLabel: UILabel!
+    
+    @IBOutlet weak var tagsLabel: UILabel!
+    
+    var book: Book!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        titleLabel.text = book.title
+        authorLabel.text = book.author
+        publisherLabel.text = book.publisher
+        tagsLabel.text = book.categories
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func checkingOut(_ sender: UIButton) {
     }
-    */
 
+    @IBAction func sharing(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    
 }
