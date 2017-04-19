@@ -12,8 +12,8 @@ class Book {
     
     var author:     String = ""
     var title:      String = ""
-    var url:        String?
-    var id:         Int?
+    var url:        String = ""
+    var id:         Int    = 0
     var categories: String?
     var publisher:  String?
     var checkedOut: String?
@@ -26,6 +26,32 @@ class Book {
         if let title = data["title"] as? String {
             self.title = title
         }
+        if let url = data["url"] as? String {
+            self.url = url
+        }
+        if let id = data["id"] as? Int {
+            self.id = id
+        }
+        if let categories = data["categories"] as? String {
+            self.categories = categories
+        }
+        if let publisher = data["publisher"] as? String {
+            self.publisher = publisher
+        }
+        if let checkedOut = data["lastCheckedOut"] as? String {
+            self.checkedOut = checkedOut
+        }
+        if let checkedBy = data["lastCheckedOutBy"] as? String {
+            self.checkedBy = checkedBy
+        }
+    }
+    
+    func checkOutDescription() -> String {
+        if let checkedOut = checkedOut,
+            let checkedBy = checkedBy {
+            return checkedBy + " @ " + checkedOut
+        }
+        return ""
     }
     
 }

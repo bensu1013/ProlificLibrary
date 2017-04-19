@@ -36,7 +36,7 @@ struct ProlificAPI {
     }
     
     //GET method to recieve specific book in library
-    static func getBook(bookURL: String, completion: @escaping ([String:Any]) -> () ) {
+    static func getBook(bookURL: String, completion: @escaping (Book) -> () ) {
         
         let urlString = server + bookURL
         let url = URL(string: urlString)
@@ -50,7 +50,8 @@ struct ProlificAPI {
             
             do {
                 let responseJSON = try JSONSerialization.jsonObject(with:uData, options: []) as! [String:Any]
-                completion(responseJSON)
+                let book = Book(data: responseJSON)
+                completion(book)
             } catch {
                 
             }
@@ -101,7 +102,6 @@ struct ProlificAPI {
         urlRequest.httpMethod = "PUT"
         urlRequest.httpBody = jsonData
         
-
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in

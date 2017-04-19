@@ -38,7 +38,7 @@ class BookListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? DetailViewController,
-            let index = sender as? IndexPath {
+            let index = tableView.indexPathForSelectedRow {
             
             let chosenBook = bookManager.list[index.row]
             dest.book = chosenBook
@@ -69,10 +69,6 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.author
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detailSegue", sender: indexPath)
     }
     
 }
