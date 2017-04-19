@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-h9-fbg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="635"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookListCell" textLabel="lsA-VP-i5I" detailTextLabel="WdG-q6-GBX" style="IBUITableViewCellStyleSubtitle" id="jmr-FJ-QSa">
@@ -55,12 +56,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEY-EF-dsU">
+                                <rect key="frame" x="0.0" y="635" width="375" height="32"/>
+                                <connections>
+                                    <action selector="bookpocalypse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G98-rS-HP2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PEY-EF-dsU" secondAttribute="bottom" id="75u-iN-Nvf"/>
+                            <constraint firstItem="PEY-EF-dsU" firstAttribute="top" secondItem="aa3-h9-fbg" secondAttribute="bottom" id="Arw-JS-VUR"/>
                             <constraint firstItem="aa3-h9-fbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="CGU-p8-8fI"/>
+                            <constraint firstItem="PEY-EF-dsU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="LRN-iZ-x1a"/>
                             <constraint firstItem="aa3-h9-fbg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="UG2-C3-oD4"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aa3-h9-fbg" secondAttribute="bottom" id="qGg-DG-2m3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PEY-EF-dsU" secondAttribute="trailing" constant="-16" id="miO-JN-vnA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aa3-h9-fbg" secondAttribute="bottom" multiplier="1.05" id="qGg-DG-2m3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aa3-h9-fbg" secondAttribute="trailing" constant="-16" id="txC-sb-ecZ"/>
                         </constraints>
                     </view>
@@ -70,7 +81,11 @@
                                 <segue destination="8XU-aq-aAj" kind="presentation" id="xgc-Qt-10S"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="wYr-ym-7QP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="wYr-ym-7QP">
+                            <connections>
+                                <action selector="searchButtonAction:" destination="BYZ-38-t0r" id="K9Z-Do-Gc1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="aa3-h9-fbg" id="Ok7-Vv-oyI"/>
@@ -152,7 +167,7 @@
                     </view>
                     <connections>
                         <outlet property="authorTextField" destination="YiM-u9-80B" id="CNX-Sq-9pU"/>
-                        <outlet property="categoryTextField" destination="IYe-Uc-WBk" id="8tq-6m-Njh"/>
+                        <outlet property="categoriesTextField" destination="IYe-Uc-WBk" id="NtL-69-wsH"/>
                         <outlet property="doneButton" destination="3qO-Tn-9dl" id="9Wu-Di-JOj"/>
                         <outlet property="publisherTextField" destination="fsj-fg-U3O" id="fz4-TN-abm"/>
                         <outlet property="titleTextField" destination="GEX-SE-09k" id="uYl-Eb-3ca"/>

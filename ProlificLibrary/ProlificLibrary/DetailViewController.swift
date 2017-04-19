@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class DetailViewController: UIViewController {
 
@@ -45,20 +46,17 @@ class DetailViewController: UIViewController {
         super.viewDidAppear(animated)
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? UpdateBookViewController {
             dest.book = self.book
         }
     }
+    
     deinit {
         print("bye bye detail")
     }
+    
     func prepareLabels() {
         titleLabel.text = book.title
         authorLabel.text = book.author
@@ -70,15 +68,15 @@ class DetailViewController: UIViewController {
     @IBAction func checkingOut(_ sender: UIButton) {
         let alert = UIAlertController(title: "Checking Out", message: "Please Enter Your Name", preferredStyle: .alert)
         alert.addTextField()
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
             if let name = alert.textFields?[0].text {
        
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
                 
-                
                 let timeCheckedOut = dateFormatter.string(from: Date())
-                print(timeCheckedOut)
+
                 let checkOutData = ["lastCheckedOut": timeCheckedOut,
                                     "lastCheckedOutBy": name]
                 
@@ -93,6 +91,7 @@ class DetailViewController: UIViewController {
                 })
             }
         }
+        alert.addAction(cancel)
         alert.addAction(confirm)
         self.present(alert, animated: true) { 
             
@@ -101,6 +100,10 @@ class DetailViewController: UIViewController {
 
     @IBAction func sharing(_ sender: UIBarButtonItem) {
         
+        if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
+            vc.setInitialText("\(book.title) is a great read")
+            present(vc, animated: true)
+        }
     }
     
     

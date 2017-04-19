@@ -46,6 +46,25 @@ class BookListViewController: UIViewController {
         }
     }
     
+    @IBAction func searchButtonAction(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func bookpocalypse(_ sender: UIButton) {
+        let deathAlert = UIAlertController(title: "The End is Near", message: "The great fires of Alexandria will pale in comparison!", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Retreat", style: .cancel)
+        let confirm = UIAlertAction(title: "Burn", style: .default) { (action) in
+            ProlificAPI.deleteAllBooks(completion: { (completed) in
+                DispatchQueue.main.async {
+                    self.bookManager.list.removeAll()
+                    self.tableView.reloadData()
+                }
+            })
+        }
+        deathAlert.addAction(cancel)
+        deathAlert.addAction(confirm)
+        self.present(deathAlert, animated: true)
+    }
+    
 }
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
