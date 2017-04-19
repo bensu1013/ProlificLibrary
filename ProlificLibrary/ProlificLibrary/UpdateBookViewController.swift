@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UpdateBookVCDelegate {
+    func dimissDetailView()
+}
+
 class UpdateBookViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
@@ -16,33 +20,31 @@ class UpdateBookViewController: UIViewController {
     @IBOutlet weak var categoriesTextField: UITextField!
     
     var book: Book!
+    var delegate: UpdateBookVCDelegate!
     
     private var fieldsHasText: Bool {
         return titleTextField.hasText || authorTextField.hasText ||
             publisherTextField.hasText || categoriesTextField.hasText ? true : false
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         prepareLabels()
-        
-    }
-    
-    deinit {
-        print("bye bye update")
     }
     
     func prepareLabels() {
-        titleTextField.placeholder = book.title
-        authorTextField.placeholder = book.author
-        publisherTextField.placeholder = book.publisher
-        categoriesTextField.placeholder = book.categories
+        titleTextField.placeholder = "Title: " + book.title
+        authorTextField.placeholder = "Author: " + book.author
+        if let publisher = book.publisher {
+            publisherTextField.placeholder = "Publisher: " + publisher
+        } else {
+            publisherTextField.placeholder = "Publisher: N/A"
+        }
+        if let tags = book.categories {
+            categoriesTextField.placeholder = "Tags: " + tags
+        } else {
+            categoriesTextField.placeholder = "Tags: N/A"
+        }
     }
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
@@ -54,13 +56,15 @@ class UpdateBookViewController: UIViewController {
     }
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
-        
-        let deleteAlert = UIAlertController(title: "Delete?", message: "You are about to remove this book from the Prolific Library permanently.\nAre you sure?", preferredStyle: .alert)
+        let alertTitle = "Delete?"
+        let alertMessage = "You are about to remove this book from the Prolific Library permanently.\nAre you sure?"
+        let deleteAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { (action) in
             ProlificAPI.deleteBook(bookURL: self.book.url, completion: { (complete) in
                 DispatchQueue.main.async {
-                    self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                    self.dismiss(animated: false, completion: nil)
+                    self.delegate.dimissDetailView()
                 }
                 
             })

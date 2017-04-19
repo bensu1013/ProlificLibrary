@@ -12,13 +12,9 @@ class AddBookViewController: UIViewController {
 
     
     @IBOutlet weak var doneButton: UIButton!
-    
     @IBOutlet weak var titleTextField: UITextField!
-    
     @IBOutlet weak var authorTextField: UITextField!
-    
     @IBOutlet weak var publisherTextField: UITextField!
-    
     @IBOutlet weak var categoriesTextField: UITextField!
     
     private var fieldsHasText: Bool {
@@ -26,12 +22,6 @@ class AddBookViewController: UIViewController {
             authorTextField.hasText ||
             publisherTextField.hasText ||
             categoriesTextField.hasText ? true : false
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
     }
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
@@ -46,16 +36,30 @@ class AddBookViewController: UIViewController {
         if !titleTextField.hasText || !authorTextField.hasText {
             showSubmitAlert()
         } else {
-            let bookData: [String: String?] = ["title": titleTextField.text,
-                            "author": authorTextField.text,
-                            "publisher": publisherTextField.text,
-                            "categories": categoriesTextField.text]
+            let bookData = packageBookData()
             ProlificAPI.addNew(bookData, completion: { (completed) in
                 if completed {
                     self.dismiss(animated: true)
                 }
             })
         }
+    }
+    
+    private func packageBookData() -> [String: Any] {
+        var bookData = [String: Any]()
+        if titleTextField.hasText {
+            bookData["title"] = titleTextField.text
+        }
+        if authorTextField.hasText {
+            bookData["author"] = authorTextField.text
+        }
+        if publisherTextField.hasText {
+            bookData["publisher"] = publisherTextField.text
+        }
+        if categoriesTextField.hasText {
+            bookData["categories"] = categoriesTextField.text
+        }
+        return bookData
     }
     
     private func showSubmitAlert() {

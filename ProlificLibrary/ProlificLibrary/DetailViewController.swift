@@ -12,25 +12,12 @@ import Social
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var authorLabel: UILabel!
-    
     @IBOutlet weak var publisherLabel: UILabel!
-    
     @IBOutlet weak var tagsLabel: UILabel!
-    
     @IBOutlet weak var checkOutLabel: UILabel!
-    
     var book: Book!
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ProlificAPI.getBook(bookURL: self.book.url, completion: { (book) in
@@ -38,21 +25,16 @@ class DetailViewController: UIViewController {
             DispatchQueue.main.async {
                 self.prepareLabels()
             }
-            
         })
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? UpdateBookViewController {
             dest.book = self.book
+            dest.delegate = self
         }
     }
-    
+
     deinit {
         print("bye bye detail")
     }
@@ -71,40 +53,53 @@ class DetailViewController: UIViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
             if let name = alert.textFields?[0].text {
-       
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
-                
                 let timeCheckedOut = dateFormatter.string(from: Date())
-
                 let checkOutData = ["lastCheckedOut": timeCheckedOut,
                                     "lastCheckedOutBy": name]
-                
                 ProlificAPI.updateBook(bookURL: self.book.url, update: checkOutData, completion: { (completed) in
                     ProlificAPI.getBook(bookURL: self.book.url, completion: { (book) in
                         self.book = book
                         DispatchQueue.main.async {
                             self.prepareLabels()
                         }
-                        
                     })
                 })
             }
         }
         alert.addAction(cancel)
         alert.addAction(confirm)
-        self.present(alert, animated: true) { 
-            
+        present(alert, animated: true) {
         }
     }
 
     @IBAction func sharing(_ sender: UIBarButtonItem) {
-        
-        if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
-            vc.setInitialText("\(book.title) is a great read")
-            present(vc, animated: true)
+        let shareAlert = UIAlertController(title: "The World Must See", message: "", preferredStyle: .actionSheet)
+        let facebookAction = UIAlertAction(title: "Facebook", style: .default) { (action) in
+            if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
+                vc.setInitialText("\(self.book.title) is a great read")
+                self.present(vc, animated: true)
+            }
         }
+        let twitterAction = UIAlertAction(title: "Twitter", style: .default) { (action) in
+            if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
+                vc.setInitialText("\(self.book.title) is a great read")
+                self.present(vc, animated: true)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        shareAlert.addAction(facebookAction)
+        shareAlert.addAction(twitterAction)
+        shareAlert.addAction(cancelAction)
+        present(shareAlert, animated: true)
     }
+}
+
+extension DetailViewController: UpdateBookVCDelegate {
     
+    func dimissDetailView() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }

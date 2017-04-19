@@ -12,7 +12,6 @@ class BookManager {
     
     static var main = BookManager()
     private init() {}
-    
     var list = [Book]()
     
     func loadBooks(handler: @escaping () -> () ) {

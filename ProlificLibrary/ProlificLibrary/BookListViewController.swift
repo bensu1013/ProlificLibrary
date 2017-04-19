@@ -11,15 +11,12 @@ import UIKit
 class BookListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
     let bookManager = BookManager.main
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
         tableView.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,18 +28,11 @@ class BookListViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? DetailViewController,
             let index = tableView.indexPathForSelectedRow {
-            
             let chosenBook = bookManager.list[index.row]
             dest.book = chosenBook
-            
         }
     }
     
@@ -52,7 +42,7 @@ class BookListViewController: UIViewController {
     @IBAction func bookpocalypse(_ sender: UIButton) {
         let deathAlert = UIAlertController(title: "The End is Near", message: "The great fires of Alexandria will pale in comparison!", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Retreat", style: .cancel)
-        let confirm = UIAlertAction(title: "Burn", style: .default) { (action) in
+        let confirm = UIAlertAction(title: "Burn", style: .destructive) { (action) in
             ProlificAPI.deleteAllBooks(completion: { (completed) in
                 DispatchQueue.main.async {
                     self.bookManager.list.removeAll()
@@ -84,7 +74,6 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookListCell", for: indexPath)
         let book = bookManager.list[indexPath.row]
-        
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.author
         return cell

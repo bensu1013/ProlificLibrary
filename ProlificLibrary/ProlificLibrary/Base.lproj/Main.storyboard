@@ -258,7 +258,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Update"/>
                                 <connections>
-                                    <segue destination="Dx9-Rr-BdU" kind="presentation" id="vVe-IN-vJl"/>
+                                    <segue destination="Dx9-Rr-BdU" kind="presentation" identifier="updateBookSegue" id="vVe-IN-vJl"/>
                                 </connections>
                             </button>
                         </subviews>
