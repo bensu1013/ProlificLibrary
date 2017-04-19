@@ -27,12 +27,18 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        prepareLabels()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        ProlificAPI.getBook(bookURL: self.book.url, completion: { (book) in
+            self.book = book
+            DispatchQueue.main.async {
+                self.prepareLabels()
+            }
+            
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +56,9 @@ class DetailViewController: UIViewController {
             dest.book = self.book
         }
     }
-    
+    deinit {
+        print("bye bye detail")
+    }
     func prepareLabels() {
         titleLabel.text = book.title
         authorLabel.text = book.author

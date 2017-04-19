@@ -19,24 +19,19 @@ class AddBookViewController: UIViewController {
     
     @IBOutlet weak var publisherTextField: UITextField!
     
-    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var categoriesTextField: UITextField!
     
     private var fieldsHasText: Bool {
         return titleTextField.hasText ||
             authorTextField.hasText ||
             publisherTextField.hasText ||
-            categoryTextField.hasText ? true : false
+            categoriesTextField.hasText ? true : false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
@@ -54,7 +49,7 @@ class AddBookViewController: UIViewController {
             let bookData: [String: String?] = ["title": titleTextField.text,
                             "author": authorTextField.text,
                             "publisher": publisherTextField.text,
-                            "categories": categoryTextField.text]
+                            "categories": categoriesTextField.text]
             ProlificAPI.addNew(bookData, completion: { (completed) in
                 if completed {
                     self.dismiss(animated: true)
