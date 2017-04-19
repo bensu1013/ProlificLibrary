@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD2333D41EA6EECD00076B3E /* UpdateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */; };
 		FD4FEF551EA546A80023216B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF541EA546A80023216B /* AppDelegate.swift */; };
 		FD4FEF571EA546A80023216B /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4FEF561EA546A80023216B /* BookListViewController.swift */; };
 		FD4FEF5A1EA546A80023216B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4FEF581EA546A80023216B /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBookViewController.swift; sourceTree = "<group>"; };
 		FD4FEF511EA546A80023216B /* ProlificLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProlificLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4FEF541EA546A80023216B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD4FEF561EA546A80023216B /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				FD4FEF6F1EA5ADCB0023216B /* DetailViewController.swift */,
 				FD4FEF711EA5AED80023216B /* AddBookViewController.swift */,
 				FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */,
+				FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */,
 				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
 				FD4FEF6B1EA54A520023216B /* BooksManager.swift */,
 				FD4FEF6D1EA575540023216B /* Book.swift */,
@@ -162,6 +165,7 @@
 				FD4FEF721EA5AED80023216B /* AddBookViewController.swift in Sources */,
 				FD4FEF6A1EA547CC0023216B /* ProlificAPI.swift in Sources */,
 				FD4FEF6E1EA575540023216B /* Book.swift in Sources */,
+				FD2333D41EA6EECD00076B3E /* UpdateBookViewController.swift in Sources */,
 				FD4FEF741EA5B2000023216B /* BookListTableViewCell.swift in Sources */,
 				FD4FEF6C1EA54A520023216B /* BooksManager.swift in Sources */,
 				FD4FEF5D1EA546A80023216B /* ProlificLibrary.xcdatamodeld in Sources */,
@@ -332,6 +336,7 @@
 				FD4FEF681EA546A80023216B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

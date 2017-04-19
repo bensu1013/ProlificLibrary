@@ -51,7 +51,7 @@ class AddBookViewController: UIViewController {
         if !titleTextField.hasText || !authorTextField.hasText {
             showSubmitAlert()
         } else {
-            let bookData: [String: Any] = ["title": titleTextField.text,
+            let bookData: [String: String?] = ["title": titleTextField.text,
                             "author": authorTextField.text,
                             "publisher": publisherTextField.text,
                             "categories": categoryTextField.text]

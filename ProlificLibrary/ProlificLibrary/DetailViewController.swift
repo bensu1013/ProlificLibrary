@@ -45,6 +45,12 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? UpdateBookViewController {
+            dest.book = self.book
+        }
+    }
+    
     func prepareLabels() {
         titleLabel.text = book.title
         authorLabel.text = book.author
