@@ -10,6 +10,7 @@ import Foundation
 
 class BookManager {
     
+    var selectedBook: Book?
     var list = [Book]()
     private var baseList = [Book]()
     static var main = BookManager()
@@ -51,6 +52,64 @@ class BookManager {
     
     func clearSearch() {
         list = baseList
+    }
+    
+    func select(at index: Int) {
+        if (0...list.count-1).contains(index) {
+            selectedBook = list[index]
+        }
+    }
+    
+    func refreshSelectedBook(handler: @escaping () -> () ) {
+        if let unwrappedBook = selectedBook {
+            ProlificAPI.getBook(bookURL: unwrappedBook.url, completion: { (book) in
+                self.selectedBook = book
+                handler()
+            })
+        }
+    }
+    
+    func checkOutSelectedBook(with data: [String: Any], handler: @escaping () -> () ) {
+        guard let unwrappedBook = selectedBook else {
+            return
+        }
+        ProlificAPI.updateBook(bookURL: unwrappedBook.url, update: data, completion: { (completed) in
+            self.refreshSelectedBook {
+                handler()
+            }
+        })
+    }
+    
+    func updateSelectedBook(with data: [String: Any], handler: @escaping () -> () ) {
+        guard let unwrappedBook = selectedBook else {
+            return
+        }
+        ProlificAPI.updateBook(bookURL: unwrappedBook.url, update: data, completion: { (completed) in
+            handler()
+        })
+    }
+    
+    
+    func deleteSelectedBook(handler: @escaping () -> () ) {
+        guard let unwrappedBook = selectedBook else {
+            return
+        }
+        ProlificAPI.deleteBook(bookURL: unwrappedBook.url, completion: { (complete) in
+            handler()
+        })
+    }
+    
+    func bookpocalypse(handler: @escaping () -> () ) {
+        ProlificAPI.deleteAllBooks(completion: { (completed) in
+                self.list.removeAll()
+                handler()
+        })
+    }
+    
+    func addNewBook(with data: [String: Any], handler: @escaping () -> () ) {
+        ProlificAPI.addNew(data, completion: { (completed) in
+            handler()
+        })
     }
     
 }

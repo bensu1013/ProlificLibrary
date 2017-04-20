@@ -26,7 +26,7 @@ class AddBookViewController: UIViewController {
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
         if fieldsHasText {
-            showDoneAlert()
+            presentDoneAlert()
         } else {
             self.dismiss(animated: true)
         }
@@ -34,13 +34,11 @@ class AddBookViewController: UIViewController {
     
     @IBAction func submitButtonAction(_ sender: UIButton) {
         if !titleTextField.hasText || !authorTextField.hasText {
-            showSubmitAlert()
+            presentSubmitAlert()
         } else {
             let bookData = packageBookData()
-            ProlificAPI.addNew(bookData, completion: { (completed) in
-                if completed {
-                    self.dismiss(animated: true)
-                }
+            BookManager.main.addNewBook(with: bookData, handler: { 
+                self.dismiss(animated: true, completion: nil)
             })
         }
     }
@@ -62,22 +60,16 @@ class AddBookViewController: UIViewController {
         return bookData
     }
     
-    private func showSubmitAlert() {
-        let alert = UIAlertController(title: "Need More Info", message: "Both Title and Author of the book is required to submit!", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Okay", style: .cancel)
-        alert.addAction(confirm)
-        self.show(alert, sender: nil)
+    private func presentSubmitAlert() {
+        let submitAlert = AlertControllerFactory.createSubmit(as: .add)
+        present(submitAlert, animated: true, completion: nil)
     }
     
-    private func showDoneAlert() {
-        let alert = UIAlertController(title: "You Sure?", message: "Unsubmitted text will be lost.", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(cancel)
-        let confirm = UIAlertAction(title: "Okay", style: .default) { (action) in
-            self.dismiss(animated: true)
+    private func presentDoneAlert() {
+        let doneAlert = AlertControllerFactory.createDone {
+            self.dismiss(animated: true, completion: nil)
         }
-        alert.addAction(confirm)
-        self.show(alert, sender: nil)
+        present(doneAlert, animated: true, completion: nil)
     }
     
 }

@@ -39,7 +39,8 @@ class Book {
             self.publisher = publisher
         }
         if let checkedOut = data["lastCheckedOut"] as? String {
-            self.checkedOut = checkedOut
+            let checkedOutString = Date.prolificModify(checkedOut)
+            self.checkedOut = checkedOutString
         }
         if let checkedBy = data["lastCheckedOutBy"] as? String {
             self.checkedBy = checkedBy

@@ -19,7 +19,7 @@ class UpdateBookViewController: UIViewController {
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var categoriesTextField: UITextField!
     
-    var book: Book!
+//    var book: Book!
     var delegate: UpdateBookVCDelegate!
     
     private var fieldsHasText: Bool {
@@ -33,6 +33,9 @@ class UpdateBookViewController: UIViewController {
     }
     
     func prepareLabels() {
+        guard let book = BookManager.main.selectedBook else {
+            return
+        }
         titleTextField.placeholder = "Title: " + book.title
         authorTextField.placeholder = "Author: " + book.author
         if let publisher = book.publisher {
@@ -49,28 +52,19 @@ class UpdateBookViewController: UIViewController {
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
         if fieldsHasText {
-            showDoneAlert()
+            presentDoneAlert()
         } else {
             self.dismiss(animated: true)
         }
     }
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
-        let alertTitle = "Delete?"
-        let alertMessage = "You are about to remove this book from the Prolific Library permanently.\nAre you sure?"
-        let deleteAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { (action) in
-            ProlificAPI.deleteBook(bookURL: self.book.url, completion: { (complete) in
-                DispatchQueue.main.async {
-                    self.dismiss(animated: false, completion: nil)
-                    self.delegate.dimissDetailView()
-                }
-                
-            })
+        let deleteAlert = AlertControllerFactory.createDelete {
+            DispatchQueue.main.async {
+                self.dismiss(animated: false, completion: nil)
+                self.delegate.dimissDetailView()
+            }
         }
-        deleteAlert.addAction(cancelAction)
-        deleteAlert.addAction(confirmAction)
         self.present(deleteAlert, animated: true)
     }
     
@@ -78,11 +72,11 @@ class UpdateBookViewController: UIViewController {
     @IBAction func submitButtonAction(_ sender: UIButton) {
         if fieldsHasText {
             let bookData = packageBookData()
-            ProlificAPI.updateBook(bookURL: self.book.url, update: bookData, completion: { (completed) in
-                self.dismiss(animated: true)
+            BookManager.main.updateSelectedBook(with: bookData, handler: { 
+                self.dismiss(animated: true, completion: nil)
             })
         } else {
-            showSubmitAlert()
+            presentSubmitAlert()
         }
     }
     
@@ -103,22 +97,16 @@ class UpdateBookViewController: UIViewController {
         return bookData
     }
     
-    private func showSubmitAlert() {
-        let alert = UIAlertController(title: "", message: "No updates were made to the book.", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Okay", style: .cancel)
-        alert.addAction(confirm)
-        self.show(alert, sender: nil)
+    private func presentSubmitAlert() {
+        let submitAlert = AlertControllerFactory.createSubmit(as: .update)
+        present(submitAlert, animated: true, completion: nil)
     }
     
-    private func showDoneAlert() {
-        let alert = UIAlertController(title: "You Sure?", message: "Unsubmitted text will be lost.", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(cancel)
-        let confirm = UIAlertAction(title: "Okay", style: .default) { (action) in
-            self.dismiss(animated: true)
+    private func presentDoneAlert() {
+        let doneAlert = AlertControllerFactory.createDone {
+            self.dismiss(animated: true, completion: nil)
         }
-        alert.addAction(confirm)
-        self.show(alert, sender: nil)
+        present(doneAlert, animated: true, completion: nil)
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class BookListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     let bookManager = BookManager.main
     
@@ -29,58 +29,27 @@ class BookListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? DetailViewController,
+        if let _ = segue.destination as? DetailViewController,
             let index = tableView.indexPathForSelectedRow {
-            let chosenBook = bookManager.list[index.row]
-            dest.book = chosenBook
+            bookManager.select(at: index.row)
         }
     }
     
     @IBAction func searchButtonAction(_ sender: UIBarButtonItem) {
-        let searchAlert = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
-        searchAlert.addTextField(configurationHandler: nil)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let searchTitleAction = UIAlertAction(title: "By Title", style: .default) { (action) in
-            if let searchText = searchAlert.textFields?[0].text {
-                if searchText != "" {
-                    print("title")
-                    self.bookManager.searchTitles(for: searchText)
-                    self.tableView.reloadData()
-                }
+        let searchAlert = AlertControllerFactory.createSearching {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
-        let searchAuthorAction = UIAlertAction(title: "By Author", style: .default) { (action) in
-            if let searchText = searchAlert.textFields?[0].text {
-                if searchText != "" {
-                    self.bookManager.searchAuthors(for: searchText)
-                    self.tableView.reloadData()
-                }
-            }
-        }
-        let clearSearch = UIAlertAction(title: "Clear", style: .default) { (action) in
-            self.bookManager.clearSearch()
-            self.tableView.reloadData()
-        }
-        searchAlert.addAction(cancelAction)
-        searchAlert.addAction(searchTitleAction)
-        searchAlert.addAction(searchAuthorAction)
-        searchAlert.addAction(clearSearch)
         present(searchAlert, animated: true)
     }
     
     @IBAction func bookpocalypse(_ sender: UIButton) {
-        let deathAlert = UIAlertController(title: "The End is Near", message: "The great fires of Alexandria will pale in comparison!", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Retreat", style: .cancel)
-        let confirm = UIAlertAction(title: "Burn", style: .destructive) { (action) in
-            ProlificAPI.deleteAllBooks(completion: { (completed) in
-                DispatchQueue.main.async {
-                    self.bookManager.list.removeAll()
-                    self.tableView.reloadData()
-                }
-            })
+        let deathAlert = AlertControllerFactory.createBookpocalypse {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        deathAlert.addAction(cancel)
-        deathAlert.addAction(confirm)
         present(deathAlert, animated: true)
     }
     
