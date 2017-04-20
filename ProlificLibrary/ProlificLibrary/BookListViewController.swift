@@ -37,6 +37,35 @@ class BookListViewController: UIViewController {
     }
     
     @IBAction func searchButtonAction(_ sender: UIBarButtonItem) {
+        let searchAlert = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
+        searchAlert.addTextField(configurationHandler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let searchTitleAction = UIAlertAction(title: "By Title", style: .default) { (action) in
+            if let searchText = searchAlert.textFields?[0].text {
+                if searchText != "" {
+                    print("title")
+                    self.bookManager.searchTitles(for: searchText)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        let searchAuthorAction = UIAlertAction(title: "By Author", style: .default) { (action) in
+            if let searchText = searchAlert.textFields?[0].text {
+                if searchText != "" {
+                    self.bookManager.searchAuthors(for: searchText)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        let clearSearch = UIAlertAction(title: "Clear", style: .default) { (action) in
+            self.bookManager.clearSearch()
+            self.tableView.reloadData()
+        }
+        searchAlert.addAction(cancelAction)
+        searchAlert.addAction(searchTitleAction)
+        searchAlert.addAction(searchAuthorAction)
+        searchAlert.addAction(clearSearch)
+        present(searchAlert, animated: true)
     }
     
     @IBAction func bookpocalypse(_ sender: UIButton) {
@@ -52,7 +81,7 @@ class BookListViewController: UIViewController {
         }
         deathAlert.addAction(cancel)
         deathAlert.addAction(confirm)
-        self.present(deathAlert, animated: true)
+        present(deathAlert, animated: true)
     }
     
 }

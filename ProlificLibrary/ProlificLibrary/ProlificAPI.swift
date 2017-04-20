@@ -16,10 +16,14 @@ struct ProlificAPI {
     static func getAllBooks(completion: @escaping ([[String: Any]]) -> () ) {
         let urlString = server + "/books"
         let url = URL(string: urlString)
-        guard let unwrappedUrl = url else {  return  }
+        guard let unwrappedUrl = url else {
+            return
+        }
         let session = URLSession.shared
         let dataTask = session.dataTask(with: unwrappedUrl) { (data, response, error) in
-            guard let unwrappedData = data else { return }
+            guard let unwrappedData = data else {
+                return
+            }
             do {
                 let responseJSON = try JSONSerialization.jsonObject(with:unwrappedData, options: []) as! [[String:Any]]
                 completion(responseJSON)
@@ -34,12 +38,16 @@ struct ProlificAPI {
     static func getBook(bookURL: String, completion: @escaping (Book) -> () ) {
         let urlString = server + bookURL
         let url = URL(string: urlString)
-        guard let unwrappedUrl = url else {  return  }
+        guard let unwrappedUrl = url else {
+            return
+        }
         let session = URLSession.shared
         let dataTask = session.dataTask(with: unwrappedUrl) { (data, response, error) in
-            guard let uData = data else { return }
+            guard let uData = data else {
+                return
+            }
             do {
-                let responseJSON = try JSONSerialization.jsonObject(with:uData, options: []) as! [String:Any]
+                let responseJSON = try JSONSerialization.jsonObject(with:uData, options: []) as! [String: Any]
                 let book = Book(data: responseJSON)
                 completion(book)
             } catch {
@@ -54,7 +62,9 @@ struct ProlificAPI {
         let urlString = server + "/books"
         let url = URL(string: urlString)
         let jsonData = try? JSONSerialization.data(withJSONObject: book)
-        guard let unwrappedUrl = url else { return }
+        guard let unwrappedUrl = url else {
+            return
+        }
         var urlRequest = URLRequest(url: unwrappedUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "POST"
@@ -75,7 +85,9 @@ struct ProlificAPI {
         let urlString = server + bookURL
         let url = URL(string: urlString)
         let jsonData = try? JSONSerialization.data(withJSONObject: book)
-        guard let unwrappedUrl = url else { return }
+        guard let unwrappedUrl = url else {
+            return
+        }
         var urlRequest = URLRequest(url: unwrappedUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "PUT"
@@ -95,7 +107,9 @@ struct ProlificAPI {
     static func deleteBook(bookURL: String, completion: @escaping (Bool) -> () ) {
         let urlString = server + bookURL
         let url = URL(string: urlString)
-        guard let unwrappedUrl = url else { return }
+        guard let unwrappedUrl = url else {
+            return
+        }
         var urlRequest = URLRequest(url: unwrappedUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "DELETE"
@@ -114,7 +128,9 @@ struct ProlificAPI {
     static func deleteAllBooks(completion: @escaping (Bool) -> () ) {
         let urlString = server + "/clean"
         let url = URL(string: urlString)
-        guard let unwrappedUrl = url else { return }
+        guard let unwrappedUrl = url else {
+            return
+        }
         var urlRequest = URLRequest(url: unwrappedUrl)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "DELETE"
