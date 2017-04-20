@@ -28,7 +28,6 @@ class DetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? UpdateBookViewController {
-//            dest.book = self.book
             dest.delegate = self
         }
     }
@@ -39,8 +38,16 @@ class DetailViewController: UIViewController {
         }
         titleLabel.text = book.title
         authorLabel.text = book.author
-        publisherLabel.text = book.publisher
-        tagsLabel.text = book.categories
+        if let publisher = book.publisher {
+            publisherLabel.text = publisher
+        } else {
+            publisherLabel.text = "N/A"
+        }
+        if let categories = book.categories {
+            tagsLabel.text = categories
+        } else {
+            tagsLabel.text = "N/A"
+        }
         checkOutLabel.text = book.checkOutDescription()
     }
     

@@ -24,6 +24,7 @@ extension Date {
         guard let date = dateFormatter.date(from: time) else {
             return nil
         }
+        dateFormatter.dateFormat = "yyyy-MM-dd h:mma"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         let newTime = dateFormatter.string(from: date)
         return newTime

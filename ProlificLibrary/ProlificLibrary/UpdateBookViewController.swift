@@ -19,7 +19,6 @@ class UpdateBookViewController: UIViewController {
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var categoriesTextField: UITextField!
     
-//    var book: Book!
     var delegate: UpdateBookVCDelegate!
     
     private var fieldsHasText: Bool {
