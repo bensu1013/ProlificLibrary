@@ -95,7 +95,9 @@ class BookManager {
             return
         }
         ProlificAPI.deleteBook(bookURL: unwrappedBook.url, completion: { (complete) in
-            handler()
+            self.loadBooks {
+                handler()
+            }
         })
     }
     

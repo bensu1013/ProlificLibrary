@@ -60,7 +60,7 @@ class DetailViewController: UIViewController {
         present(checkOutAlert, animated: true)
     }
 
-    @IBAction func sharing(_ sender: UIBarButtonItem) {
+    @IBAction func sharing(_ sender: UIButton) {
         guard let book = BookManager.main.selectedBook else {
             return
         }

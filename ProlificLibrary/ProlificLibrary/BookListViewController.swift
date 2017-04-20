@@ -17,6 +17,11 @@ class BookListViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = UIScreen.main.bounds.height / 8
+        let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        recognizer.direction = .left
+        tableView.addGestureRecognizer(recognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +57,28 @@ class BookListViewController: UIViewController {
         }
         present(deathAlert, animated: true)
     }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        var recognizer = UISwipeGestureRecognizer(target: self, action: "didSwipe")
+//        self.tableView.addGestureRecognizer(recognizer)
+//    }
     
+    func didSwipe(recognizer: UIGestureRecognizer) {
+        if recognizer.state == UIGestureRecognizerState.ended {
+            let swipeLocation = recognizer.location(in: self.tableView)
+            if let swipedIndexPath = tableView.indexPathForRow(at: swipeLocation) {
+                if let swipedCell = self.tableView.cellForRow(at: swipedIndexPath) {
+                    bookManager.select(at: swipedIndexPath.row)
+                    let deleteAlert = AlertControllerFactory.createDelete {
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                    self.present(deleteAlert, animated: true)
+                }
+            }
+        }
+    }
 }
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -65,13 +91,10 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         return bookManager.list.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height / 8
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookListCell", for: indexPath)
         let book = bookManager.list[indexPath.row]
+        cell.backgroundColor = UIColor.clear
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.author
         return cell

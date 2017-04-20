@@ -57,17 +57,6 @@ class UpdateBookViewController: UIViewController {
         }
     }
     
-    @IBAction func deleteButtonAction(_ sender: UIButton) {
-        let deleteAlert = AlertControllerFactory.createDelete {
-            DispatchQueue.main.async {
-                self.dismiss(animated: false, completion: nil)
-                self.delegate.dimissDetailView()
-            }
-        }
-        self.present(deleteAlert, animated: true)
-    }
-    
-    
     @IBAction func submitButtonAction(_ sender: UIButton) {
         if fieldsHasText {
             let bookData = packageBookData()
