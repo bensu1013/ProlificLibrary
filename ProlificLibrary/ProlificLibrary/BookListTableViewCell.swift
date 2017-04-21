@@ -8,27 +8,40 @@
 
 import UIKit
 
+protocol BookListCellDelegate {
+    func deleteSelected()
+}
+
 class BookListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-    
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    var vcDelegate: BookListCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
-        print("pick me")
     }
-    @IBAction func buttonAction(_ sender: Any) {
-        print("deleteee")
+    
+    @IBAction func deleteButtonAction(_ sender: Any) {
+        vcDelegate?.deleteSelected()
     }
-
+    
+    func setLabels(with book: Book) {
+        backgroundColor = UIColor.clear
+        deleteButton.isHidden = true
+        titleLabel.text = book.title
+        authorLabel.text = book.author
+    }
+    
+    func swipedEvent() {
+        deleteButton.isHidden = !deleteButton.isHidden
+    }
+    
 }

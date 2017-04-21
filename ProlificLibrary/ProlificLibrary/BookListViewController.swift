@@ -57,29 +57,17 @@ class BookListViewController: UIViewController {
         }
         present(deathAlert, animated: true)
     }
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        var recognizer = UISwipeGestureRecognizer(target: self, action: "didSwipe")
-//        self.tableView.addGestureRecognizer(recognizer)
-//    }
     
     func didSwipe(recognizer: UIGestureRecognizer) {
         if recognizer.state == UIGestureRecognizerState.ended {
             let swipeLocation = recognizer.location(in: self.tableView)
-            if let swipedIndexPath = tableView.indexPathForRow(at: swipeLocation) {
-                if let swipedCell = self.tableView.cellForRow(at: swipedIndexPath) as? BookListTableViewCell {
-                    swipedCell.setSelected(false, animated: true)
-//                    bookManager.select(at: swipedIndexPath.row)
-//                    let deleteAlert = AlertControllerFactory.createDelete {
-//                        DispatchQueue.main.async {
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                    self.present(deleteAlert, animated: true)
-                }
+            if let swipedIndexPath = tableView.indexPathForRow(at: swipeLocation),
+                let swipedCell = self.tableView.cellForRow(at: swipedIndexPath) as? BookListTableViewCell {
+                    swipedCell.swipedEvent()
             }
         }
     }
+    
 }
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -95,10 +83,23 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookListCell", for: indexPath) as! BookListTableViewCell
         let book = bookManager.list[indexPath.row]
-        cell.backgroundColor = UIColor.clear
-        cell.titleLabel.text = book.title
-        cell.authorLabel.text = book.author
+        cell.setLabels(with: book)
+        cell.vcDelegate = self
         return cell
+    }
+    
+}
+
+extension BookListViewController: BookListCellDelegate {
+    
+    func deleteSelected() {
+        let deleteAlert = AlertControllerFactory.createDelete {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        self.present(deleteAlert, animated: true)
+
     }
     
 }

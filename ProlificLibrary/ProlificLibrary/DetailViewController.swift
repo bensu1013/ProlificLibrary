@@ -21,18 +21,12 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         BookManager.main.refreshSelectedBook {
             DispatchQueue.main.async {
-                self.prepareLabels()
+                self.setLabels()
             }
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? UpdateBookViewController {
-            dest.delegate = self
-        }
-    }
-    
-    func prepareLabels() {
+    func setLabels() {
         guard let book = BookManager.main.selectedBook else {
             return
         }
@@ -54,7 +48,7 @@ class DetailViewController: UIViewController {
     @IBAction func checkingOut(_ sender: UIButton) {
         let checkOutAlert = AlertControllerFactory.createCheckingOut() {
             DispatchQueue.main.async {
-                self.prepareLabels()
+                self.setLabels()
             }
         }
         present(checkOutAlert, animated: true)
@@ -70,12 +64,4 @@ class DetailViewController: UIViewController {
         }
         present(shareAlert, animated: true)
     }
-}
-
-extension DetailViewController: UpdateBookVCDelegate {
-    
-    func dimissDetailView() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
 }

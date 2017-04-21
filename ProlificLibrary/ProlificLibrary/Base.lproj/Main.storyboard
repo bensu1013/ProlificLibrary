@@ -38,9 +38,11 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-fA-xnR">
                                                     <rect key="frame" x="337" y="7" width="30" height="30"/>
-                                                    <state key="normal" title="X"/>
+                                                    <state key="normal" title="X">
+                                                        <color key="titleColor" red="1" green="0.0" blue="0.0093617555427760735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
                                                     <connections>
-                                                        <action selector="buttonAction:" destination="jmr-FJ-QSa" eventType="touchUpInside" id="5QG-7i-bYC"/>
+                                                        <action selector="deleteButtonAction:" destination="jmr-FJ-QSa" eventType="touchUpInside" id="xym-5s-42D"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GVd-0P-X4n">
@@ -70,7 +72,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorLabel" destination="sZF-0x-uri" id="cRs-GQ-WbF"/>
-                                            <outlet property="button" destination="Jrj-fA-xnR" id="YrZ-Ko-IYh"/>
+                                            <outlet property="deleteButton" destination="Jrj-fA-xnR" id="ai2-v8-CWu"/>
                                             <outlet property="titleLabel" destination="GVd-0P-X4n" id="bcW-x5-tfq"/>
                                             <segue destination="3bp-Bb-YWC" kind="show" identifier="detailSegue" id="BIT-Pg-0Qx"/>
                                         </connections>
@@ -114,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="111.99400299850076"/>
+            <point key="canvasLocation" x="1345" y="-64"/>
         </scene>
         <!--Add Book View Controller-->
         <scene sceneID="21Z-Tx-noe">
@@ -210,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1m8-hu-nJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1951.2" y="-355.7721139430285"/>
+            <point key="canvasLocation" x="1969" y="-424"/>
         </scene>
         <!--Detail-->
         <scene sceneID="COJ-qP-dJx">
@@ -437,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ayf-zK-Ak3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2772" y="313"/>
+            <point key="canvasLocation" x="2479" y="313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vam-t6-eee">
@@ -455,7 +457,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngm-Ai-2qR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266" y="112"/>
+            <point key="canvasLocation" x="816" y="-65"/>
         </scene>
     </scenes>
 </document>

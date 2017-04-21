@@ -20,7 +20,7 @@ struct AlertControllerFactory {
     static func createSearching(handler: @escaping () -> () ) -> UIAlertController {
         let searchAlert = UIAlertController(title: nil, message: "What would you like to inquiry?", preferredStyle: .alert)
         searchAlert.addTextField(configurationHandler: nil)
-        let cancelAction = UIAlertAction(title: "Nothing", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
         let searchTitleAction = UIAlertAction(title: "Search by Title", style: .default) { (action) in
             if let searchText = searchAlert.textFields?[0].text {
                 if searchText != "" {

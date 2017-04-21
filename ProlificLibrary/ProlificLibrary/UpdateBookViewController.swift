@@ -8,18 +8,12 @@
 
 import UIKit
 
-protocol UpdateBookVCDelegate {
-    func dimissDetailView()
-}
-
 class UpdateBookViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var categoriesTextField: UITextField!
-    
-    var delegate: UpdateBookVCDelegate!
     
     private var fieldsHasText: Bool {
         return titleTextField.hasText || authorTextField.hasText ||
@@ -28,10 +22,10 @@ class UpdateBookViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        prepareLabels()
+        setLabels()
     }
     
-    func prepareLabels() {
+    func setLabels() {
         guard let book = BookManager.main.selectedBook else {
             return
         }
