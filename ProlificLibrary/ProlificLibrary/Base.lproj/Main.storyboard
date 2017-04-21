@@ -73,6 +73,7 @@
                                         <connections>
                                             <outlet property="authorLabel" destination="sZF-0x-uri" id="cRs-GQ-WbF"/>
                                             <outlet property="deleteButton" destination="Jrj-fA-xnR" id="ai2-v8-CWu"/>
+                                            <outlet property="deleteButtonTrailing" destination="EAl-jM-O40" id="dwk-KW-r9b"/>
                                             <outlet property="titleLabel" destination="GVd-0P-X4n" id="bcW-x5-tfq"/>
                                             <segue destination="3bp-Bb-YWC" kind="show" identifier="detailSegue" id="BIT-Pg-0Qx"/>
                                         </connections>
@@ -212,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1m8-hu-nJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1969" y="-424"/>
+            <point key="canvasLocation" x="2156" y="-417"/>
         </scene>
         <!--Detail-->
         <scene sceneID="COJ-qP-dJx">
@@ -344,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KdR-hl-oFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968.8" y="312.59370314842579"/>
+            <point key="canvasLocation" x="2156" y="313"/>
         </scene>
         <!--Update Book View Controller-->
         <scene sceneID="rh2-Bw-nab">
@@ -439,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ayf-zK-Ak3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2479" y="313"/>
+            <point key="canvasLocation" x="2959" y="313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vam-t6-eee">
@@ -457,7 +458,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngm-Ai-2qR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="-65"/>
+            <point key="canvasLocation" x="646" y="-64"/>
         </scene>
     </scenes>
 </document>

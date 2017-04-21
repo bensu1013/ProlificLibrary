@@ -17,7 +17,13 @@ class BookListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var deleteButtonTrailing: NSLayoutConstraint!
     var vcDelegate: BookListCellDelegate?
+    var deleteButtonHiding: Bool = true {
+        didSet {
+            deleteButtonHiding ? slideDeleteButtonRight() : slideDeleteButtonLeft()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,13 +41,31 @@ class BookListTableViewCell: UITableViewCell {
     
     func setLabels(with book: Book) {
         backgroundColor = UIColor.clear
-        deleteButton.isHidden = true
+        deleteButtonHiding = true
         titleLabel.text = book.title
         authorLabel.text = book.author
     }
     
-    func swipedEvent() {
-        deleteButton.isHidden = !deleteButton.isHidden
+    func swipedEvent(_ direction: UISwipeGestureRecognizerDirection) {
+        if direction == .left {
+            deleteButtonHiding = false
+        } else {
+            deleteButtonHiding = true
+        }
+    }
+    
+    func slideDeleteButtonLeft() {
+        UIView.animate(withDuration: 0.2) { 
+            self.deleteButtonTrailing.constant = 0
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func slideDeleteButtonRight() {
+        UIView.animate(withDuration: 0.2) {
+            self.deleteButtonTrailing.constant = -self.deleteButton.bounds.width * 2
+            self.layoutIfNeeded()
+        }
     }
     
 }

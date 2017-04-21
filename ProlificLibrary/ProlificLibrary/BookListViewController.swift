@@ -15,13 +15,8 @@ class BookListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = UIScreen.main.bounds.height / 8
-        let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
-        recognizer.direction = .left
-        tableView.addGestureRecognizer(recognizer)
+        prepareTableView()
+        prepareGestureRecognizers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,19 +53,35 @@ class BookListViewController: UIViewController {
         present(deathAlert, animated: true)
     }
     
-    func didSwipe(recognizer: UIGestureRecognizer) {
+    func didSwipe(recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == UIGestureRecognizerState.ended {
             let swipeLocation = recognizer.location(in: self.tableView)
             if let swipedIndexPath = tableView.indexPathForRow(at: swipeLocation),
                 let swipedCell = self.tableView.cellForRow(at: swipedIndexPath) as? BookListTableViewCell {
-                    swipedCell.swipedEvent()
+                swipedCell.swipedEvent(recognizer.direction)
             }
         }
+    }
+    
+    func prepareGestureRecognizers() {
+        let leftRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        leftRecognizer.direction = .left
+        tableView.addGestureRecognizer(leftRecognizer)
+        let rightRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        rightRecognizer.direction = .right
+        tableView.addGestureRecognizer(rightRecognizer)
     }
     
 }
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func prepareTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = UIScreen.main.bounds.height / 8
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
