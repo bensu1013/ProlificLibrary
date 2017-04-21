@@ -59,7 +59,7 @@ class DetailViewController: UIViewController {
             return
         }
         let shareAlert = AlertControllerFactory.createSharing { (vc) in
-            vc.setInitialText("\(book.title) is a great read")
+            vc.setInitialText("\(book.title) is a great read!")
             self.present(vc, animated: true)
         }
         present(shareAlert, animated: true)

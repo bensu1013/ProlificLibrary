@@ -27,7 +27,7 @@ class BookListViewController: UIViewController {
             }
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _ = segue.destination as? DetailViewController,
             let index = tableView.indexPathForSelectedRow {
@@ -110,7 +110,6 @@ extension BookListViewController: BookListCellDelegate {
             }
         }
         self.present(deleteAlert, animated: true)
-
     }
     
 }
