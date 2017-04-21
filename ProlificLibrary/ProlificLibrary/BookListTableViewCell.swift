@@ -10,6 +10,11 @@ import UIKit
 
 class BookListTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    
+    @IBOutlet weak var button: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +25,10 @@ class BookListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+        print("pick me")
+    }
+    @IBAction func buttonAction(_ sender: Any) {
+        print("deleteee")
     }
 
 }

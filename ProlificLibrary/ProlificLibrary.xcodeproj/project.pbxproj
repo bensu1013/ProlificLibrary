@@ -76,9 +76,9 @@
 			children = (
 				FD4FEF541EA546A80023216B /* AppDelegate.swift */,
 				FD4FEF561EA546A80023216B /* BookListViewController.swift */,
+				FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */,
 				FD4FEF6F1EA5ADCB0023216B /* DetailViewController.swift */,
 				FD4FEF711EA5AED80023216B /* AddBookViewController.swift */,
-				FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */,
 				FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */,
 				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
 				FD4FEF6B1EA54A520023216B /* BooksManager.swift */,

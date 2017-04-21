@@ -67,14 +67,15 @@ class BookListViewController: UIViewController {
         if recognizer.state == UIGestureRecognizerState.ended {
             let swipeLocation = recognizer.location(in: self.tableView)
             if let swipedIndexPath = tableView.indexPathForRow(at: swipeLocation) {
-                if let swipedCell = self.tableView.cellForRow(at: swipedIndexPath) {
-                    bookManager.select(at: swipedIndexPath.row)
-                    let deleteAlert = AlertControllerFactory.createDelete {
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                    self.present(deleteAlert, animated: true)
+                if let swipedCell = self.tableView.cellForRow(at: swipedIndexPath) as? BookListTableViewCell {
+                    swipedCell.setSelected(false, animated: true)
+//                    bookManager.select(at: swipedIndexPath.row)
+//                    let deleteAlert = AlertControllerFactory.createDelete {
+//                        DispatchQueue.main.async {
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                    self.present(deleteAlert, animated: true)
                 }
             }
         }
@@ -92,11 +93,11 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookListCell", for: indexPath) as! BookListTableViewCell
         let book = bookManager.list[indexPath.row]
         cell.backgroundColor = UIColor.clear
-        cell.textLabel?.text = book.title
-        cell.detailTextLabel?.text = book.author
+        cell.titleLabel.text = book.title
+        cell.authorLabel.text = book.author
         return cell
     }
     

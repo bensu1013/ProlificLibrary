@@ -29,30 +29,49 @@
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookListCell" textLabel="lsA-VP-i5I" detailTextLabel="WdG-q6-GBX" style="IBUITableViewCellStyleSubtitle" id="jmr-FJ-QSa">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookListCell" id="jmr-FJ-QSa" customClass="BookListTableViewCell" customModule="ProlificLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jmr-FJ-QSa" id="CWa-6M-OHK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="lsA-VP-i5I">
-                                                    <rect key="frame" x="15" y="1" width="49.5" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="24"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-fA-xnR">
+                                                    <rect key="frame" x="337" y="7" width="30" height="30"/>
+                                                    <state key="normal" title="X"/>
+                                                    <connections>
+                                                        <action selector="buttonAction:" destination="jmr-FJ-QSa" eventType="touchUpInside" id="5QG-7i-bYC"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GVd-0P-X4n">
+                                                    <rect key="frame" x="8" y="8" width="322.5" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" id="WdG-q6-GBX">
-                                                    <rect key="frame" x="15" y="25" width="48" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="Author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sZF-0x-uri">
+                                                    <rect key="frame" x="8" y="34.5" width="322.5" height="1"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="GVd-0P-X4n" secondAttribute="leading" id="4Lb-Au-Blx"/>
+                                                <constraint firstItem="sZF-0x-uri" firstAttribute="top" secondItem="GVd-0P-X4n" secondAttribute="bottom" id="4dc-29-pa7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jrj-fA-xnR" secondAttribute="trailing" id="EAl-jM-O40"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="sZF-0x-uri" secondAttribute="leading" id="F3G-vK-4Te"/>
+                                                <constraint firstItem="GVd-0P-X4n" firstAttribute="top" secondItem="CWa-6M-OHK" secondAttribute="topMargin" id="Q63-eN-oF0"/>
+                                                <constraint firstItem="GVd-0P-X4n" firstAttribute="trailing" secondItem="CWa-6M-OHK" secondAttribute="trailingMargin" multiplier="0.9" id="drd-Kp-wQW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sZF-0x-uri" secondAttribute="bottom" id="qSy-k0-J6w"/>
+                                                <constraint firstItem="sZF-0x-uri" firstAttribute="trailing" secondItem="CWa-6M-OHK" secondAttribute="trailingMargin" multiplier="0.9" id="xRE-fK-rl3"/>
+                                                <constraint firstItem="Jrj-fA-xnR" firstAttribute="centerY" secondItem="CWa-6M-OHK" secondAttribute="centerY" id="zim-40-GqV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="authorLabel" destination="sZF-0x-uri" id="cRs-GQ-WbF"/>
+                                            <outlet property="button" destination="Jrj-fA-xnR" id="YrZ-Ko-IYh"/>
+                                            <outlet property="titleLabel" destination="GVd-0P-X4n" id="bcW-x5-tfq"/>
                                             <segue destination="3bp-Bb-YWC" kind="show" identifier="detailSegue" id="BIT-Pg-0Qx"/>
                                         </connections>
                                     </tableViewCell>
