@@ -12,7 +12,7 @@ protocol BookListCellDelegate {
     func deleteSelected()
 }
 
-class BookListTableViewCell: UITableViewCell {
+final class BookListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -28,7 +28,6 @@ class BookListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

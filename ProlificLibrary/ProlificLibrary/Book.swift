@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Book {
+struct Book {
     
-    var author:     String = ""
-    var title:      String = ""
-    var url:        String = ""
-    var id:         Int    = 0
+    var author: String = ""
+    var title: String = ""
+    var url: String = ""
+    var id: Int = 0
     var categories: String?
-    var publisher:  String?
+    var publisher: String?
     var checkedOut: String?
-    var checkedBy:  String?
+    var checkedBy: String?
     
     init(data: [String:Any]) {
         if let author = data["author"] as? String {
@@ -47,6 +47,7 @@ class Book {
         }
     }
     
+    //format strings for detailview
     func checkOutDescription() -> String {
         if let checkedOut = checkedOut,
             let checkedBy = checkedBy {

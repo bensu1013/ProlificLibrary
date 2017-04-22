@@ -8,20 +8,34 @@
 
 import UIKit
 
-class AddBookViewController: UIViewController {
+final class AddBookViewController: UIViewController {
 
-    
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var textFieldStackView: UIStackView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var categoriesTextField: UITextField!
-    
+    @IBOutlet weak var stackViewYAxisConstraint: NSLayoutConstraint!
     private var fieldsHasText: Bool {
         return titleTextField.hasText ||
             authorTextField.hasText ||
             publisherTextField.hasText ||
             categoriesTextField.hasText ? true : false
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        prepareTextFields()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let point = touch.location(in: view)
+            if !textFieldStackView.frame.contains(point) {
+                self.view.endEditing(true)
+            }
+        }
     }
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
@@ -41,6 +55,13 @@ class AddBookViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             })
         }
+    }
+    
+    private func prepareTextFields() {
+        titleTextField.delegate = self
+        authorTextField.delegate = self
+        publisherTextField.delegate = self
+        categoriesTextField.delegate = self
     }
     
     private func packageBookData() -> [String: Any] {
@@ -70,6 +91,40 @@ class AddBookViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         present(doneAlert, animated: true, completion: nil)
+    }
+    
+}
+
+extension AddBookViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        stackViewYAxisConstraint.isActive = false
+        let newYConstraint = NSLayoutConstraint(item: textFieldStackView,
+                                                attribute: .centerYWithinMargins,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .centerY,
+                                                multiplier: 0.6,
+                                                constant: 0)
+        UIView.animate(withDuration: 0.2) {
+            self.stackViewYAxisConstraint = newYConstraint
+            self.stackViewYAxisConstraint.isActive = true
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        stackViewYAxisConstraint.isActive = false
+        let newYConstraint = NSLayoutConstraint(item: textFieldStackView,
+                                                attribute: .centerYWithinMargins,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .centerY,
+                                                multiplier: 0.8,
+                                                constant: 0)
+        UIView.animate(withDuration: 0.2) {
+            self.stackViewYAxisConstraint = newYConstraint
+            self.stackViewYAxisConstraint.isActive = true
+        }
     }
     
 }

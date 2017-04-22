@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookListViewController: UIViewController {
+final class BookListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     let bookManager = BookManager.main
@@ -35,6 +35,7 @@ class BookListViewController: UIViewController {
         }
     }
     
+    //Search options through the use of uialert
     @IBAction func searchButtonAction(_ sender: UIBarButtonItem) {
         let searchAlert = AlertControllerFactory.createSearching {
             DispatchQueue.main.async {
@@ -44,6 +45,7 @@ class BookListViewController: UIViewController {
         present(searchAlert, animated: true)
     }
     
+    //Hidden option to delete all books in the library
     @IBAction func bookpocalypse(_ sender: UIButton) {
         let deathAlert = AlertControllerFactory.createBookpocalypse {
             DispatchQueue.main.async {
@@ -53,6 +55,7 @@ class BookListViewController: UIViewController {
         present(deathAlert, animated: true)
     }
     
+    //Selector method for swipegestures
     func didSwipe(recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == UIGestureRecognizerState.ended {
             let swipeLocation = recognizer.location(in: self.tableView)
@@ -63,7 +66,7 @@ class BookListViewController: UIViewController {
         }
     }
     
-    func prepareGestureRecognizers() {
+    private func prepareGestureRecognizers() {
         let leftRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
         leftRecognizer.direction = .left
         tableView.addGestureRecognizer(leftRecognizer)
@@ -72,21 +75,18 @@ class BookListViewController: UIViewController {
         tableView.addGestureRecognizer(rightRecognizer)
     }
     
-}
-
-extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func prepareTableView() {
+    private func prepareTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = UIScreen.main.bounds.height / 8
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
+}
+
+//MARK: Tableview methods
+extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookManager.list.count
     }
@@ -103,6 +103,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension BookListViewController: BookListCellDelegate {
     
+    //When delete button in cell is pressed
     func deleteSelected() {
         let deleteAlert = AlertControllerFactory.createDelete {
             DispatchQueue.main.async {

@@ -8,16 +8,16 @@
 
 import Foundation
 
-class BookManager {
+final class BookManager {
     
     var selectedBook: Book?
     var list = [Book]()
     private var baseList = [Book]()
     static var main = BookManager()
     
-    private init() {
-    }
+    private init() {}
     
+    //calls on api to recent list of books and populate array
     func loadBooks(handler: @escaping () -> () ) {
         ProlificAPI.getAllBooks { (json) in
             self.baseList.removeAll()
@@ -30,6 +30,7 @@ class BookManager {
         }
     }
     
+    //filters list of titles by argument
     func searchTitles(for text: String) {
         var searchList = [Book]()
         for book in baseList {
@@ -40,6 +41,7 @@ class BookManager {
         list = searchList
     }
     
+    //filters list of authors by argument
     func searchAuthors(for text: String) {
         var searchList = [Book]()
         for book in baseList {
@@ -50,16 +52,19 @@ class BookManager {
         list = searchList
     }
     
+    //clears and potential filters
     func clearSearch() {
         list = baseList
     }
     
+    //sets selectedBook property to index of list
     func select(at index: Int) {
         if (0...list.count-1).contains(index) {
             selectedBook = list[index]
         }
     }
     
+    //checks server for updates of selectedBook
     func refreshSelectedBook(handler: @escaping () -> () ) {
         if let unwrappedBook = selectedBook {
             ProlificAPI.getBook(bookURL: unwrappedBook.url, completion: { (book) in
@@ -69,6 +74,7 @@ class BookManager {
         }
     }
     
+    //puts name and timestamp under selectedBook in server
     func checkOutSelectedBook(with data: [String: Any], handler: @escaping () -> () ) {
         guard let unwrappedBook = selectedBook else {
             return
@@ -80,6 +86,7 @@ class BookManager {
         })
     }
     
+    //puts new data under selectedBook
     func updateSelectedBook(with data: [String: Any], handler: @escaping () -> () ) {
         guard let unwrappedBook = selectedBook else {
             return
@@ -89,7 +96,7 @@ class BookManager {
         })
     }
     
-    
+    //remove selectedBook from server
     func deleteSelectedBook(handler: @escaping () -> () ) {
         guard let unwrappedBook = selectedBook else {
             return
@@ -101,6 +108,7 @@ class BookManager {
         })
     }
     
+    //The end of all books as we know it!
     func bookpocalypse(handler: @escaping () -> () ) {
         ProlificAPI.deleteAllBooks(completion: { (completed) in
                 self.list.removeAll()
@@ -108,6 +116,7 @@ class BookManager {
         })
     }
     
+    //creates new book from user input and Posts it to the server
     func addNewBook(with data: [String: Any], handler: @escaping () -> () ) {
         ProlificAPI.addNew(data, completion: { (completed) in
             handler()

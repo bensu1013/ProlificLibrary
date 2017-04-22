@@ -9,7 +9,7 @@
 import UIKit
 import Social
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -24,25 +24,6 @@ class DetailViewController: UIViewController {
                 self.setLabels()
             }
         }
-    }
-    
-    func setLabels() {
-        guard let book = BookManager.main.selectedBook else {
-            return
-        }
-        titleLabel.text = book.title
-        authorLabel.text = book.author
-        if let publisher = book.publisher {
-            publisherLabel.text = publisher
-        } else {
-            publisherLabel.text = "N/A"
-        }
-        if let categories = book.categories {
-            tagsLabel.text = categories
-        } else {
-            tagsLabel.text = "N/A"
-        }
-        checkOutLabel.text = book.checkOutDescription()
     }
     
     @IBAction func checkingOut(_ sender: UIButton) {
@@ -64,4 +45,24 @@ class DetailViewController: UIViewController {
         }
         present(shareAlert, animated: true)
     }
+    
+    private func setLabels() {
+        guard let book = BookManager.main.selectedBook else {
+            return
+        }
+        titleLabel.text = book.title
+        authorLabel.text = book.author
+        if let publisher = book.publisher {
+            publisherLabel.text = publisher
+        } else {
+            publisherLabel.text = "N/A"
+        }
+        if let categories = book.categories {
+            tagsLabel.text = categories
+        } else {
+            tagsLabel.text = "N/A"
+        }
+        checkOutLabel.text = book.checkOutDescription()
+    }
+    
 }

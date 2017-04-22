@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 import Social
 
-enum SubmitAlertMessage: String {
+internal enum SubmitAlertMessage: String {
     case add = "No title and author, what are you trying to do?"
     case update = "You claim to change, but none was written."
 }
 
 struct AlertControllerFactory {
     
+    //Search Alert with textfield and difference actions for search types
     static func createSearching(handler: @escaping () -> () ) -> UIAlertController {
         let searchAlert = UIAlertController(title: nil, message: "What would you like to inquiry?", preferredStyle: .alert)
         searchAlert.addTextField(configurationHandler: nil)
@@ -49,6 +50,7 @@ struct AlertControllerFactory {
         return searchAlert
     }
     
+    //Alert notifying user of complete and utter library implosion
     static func createBookpocalypse(handler: @escaping () -> () ) -> UIAlertController {
         let deathAlert = UIAlertController(title: "The End is Near", message: "The great fires of Alexandria will pale in comparison!", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Retreat", style: .cancel)
@@ -62,6 +64,7 @@ struct AlertControllerFactory {
         return deathAlert
     }
     
+    //checkout alert with textfield for user name
     static func createCheckingOut(handler: @escaping () -> () ) -> UIAlertController {
         let checkOutAlert = UIAlertController(title: "You wish to borrow?", message: "Please scribe your name.", preferredStyle: .alert)
         checkOutAlert.addTextField()
@@ -81,6 +84,7 @@ struct AlertControllerFactory {
         return checkOutAlert
     }
     
+    //alerts user of sharing with actions for facebook and twitter
     static func createSharing(handler: @escaping (SLComposeViewController) -> () ) -> UIAlertController {
         let shareAlert = UIAlertController(title: nil, message: "You wish to share with your fellow scholars?", preferredStyle: .actionSheet)
         let facebookAction = UIAlertAction(title: "Book of Faces", style: .default) { (action) in
@@ -110,6 +114,7 @@ struct AlertControllerFactory {
         return doneAlert
     }
     
+    //alert when leaving a VC with text in textfields
     static func createDone(handler: @escaping () -> () ) -> UIAlertController {
         let alert = UIAlertController(title: "Leaving?", message: "Incomplete drafts will be disposed of.", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Nevermind", style: .cancel)
@@ -121,6 +126,7 @@ struct AlertControllerFactory {
         return alert
     }
     
+    //alert for deleting a single book
     static func createDelete(handler: @escaping () -> () ) -> UIAlertController {
         let alertTitle = "Pilfer?"
         let alertMessage = "You dare remove this book from the Prolific Library?\nHow could you fathom such a thing?"
@@ -137,4 +143,3 @@ struct AlertControllerFactory {
     }
     
 }
-

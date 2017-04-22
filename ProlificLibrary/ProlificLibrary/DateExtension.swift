@@ -10,6 +10,7 @@ import Foundation
 
 extension Date {
     
+    //Takes current Date and formats it to prolific standards
     static func prolificCurrentTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
@@ -17,6 +18,7 @@ extension Date {
         return currentTime
     }
     
+    //Takes prolific time stamp and hacks it back to current time
     static func prolificModify(_ time: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

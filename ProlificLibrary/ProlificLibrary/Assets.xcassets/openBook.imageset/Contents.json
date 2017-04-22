@@ -3,6 +3,7 @@
     {
       "idiom" : "universal",
       "filename" : "openBook.png",
+      "compression-type" : "gpu-optimized-smallest",
       "scale" : "1x"
     },
     {
