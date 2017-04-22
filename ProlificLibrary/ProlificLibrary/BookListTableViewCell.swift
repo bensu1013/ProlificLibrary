@@ -25,6 +25,11 @@ final class BookListTableViewCell: UITableViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        prepareLabels()
+    }
+    
     @IBAction func deleteButtonAction(_ sender: Any) {
         vcDelegate?.deleteSelected(for: self)
     }
@@ -56,6 +61,12 @@ final class BookListTableViewCell: UITableViewCell {
             self.deleteButtonTrailing.constant = -self.deleteButton.bounds.width * 2
             self.layoutIfNeeded()
         }
+    }
+    
+    private func prepareLabels() {
+        titleLabel.font = UIFont.themedFont(as: .Regular)
+        authorLabel.font = UIFont.themedFont(as: .Small)
+        deleteButton.titleLabel?.font = UIFont.themedFont(name: "Zapfino", as: .Small)
     }
     
 }

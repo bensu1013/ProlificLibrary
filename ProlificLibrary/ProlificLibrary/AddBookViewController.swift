@@ -104,11 +104,12 @@ extension AddBookViewController: UITextFieldDelegate {
                                                 relatedBy: .equal,
                                                 toItem: view,
                                                 attribute: .centerY,
-                                                multiplier: 0.6,
+                                                multiplier: 0.55,
                                                 constant: 0)
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.25) {
             self.stackViewYAxisConstraint = newYConstraint
             self.stackViewYAxisConstraint.isActive = true
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -121,9 +122,10 @@ extension AddBookViewController: UITextFieldDelegate {
                                                 attribute: .centerY,
                                                 multiplier: 0.8,
                                                 constant: 0)
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.25) {
             self.stackViewYAxisConstraint = newYConstraint
             self.stackViewYAxisConstraint.isActive = true
+            self.view.layoutIfNeeded()
         }
     }
     

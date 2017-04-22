@@ -13,9 +13,17 @@ final class DetailViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var publisherHeader: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
+    @IBOutlet weak var tagsHeader: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var checkOutHeader: UILabel!
     @IBOutlet weak var checkOutLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        prepareLabels()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,6 +52,17 @@ final class DetailViewController: UIViewController {
             self.present(vc, animated: true)
         }
         present(shareAlert, animated: true)
+    }
+    
+    private func prepareLabels() {
+        titleLabel.font = UIFont.themedFont(as: .Title)
+        authorLabel.font = UIFont.themedFont(as: .Author)
+        publisherHeader.font = UIFont.themedFont(as: .Regular)
+        publisherLabel.font = UIFont.themedFont(as: .Regular)
+        tagsHeader.font = UIFont.themedFont(as: .Regular)
+        tagsLabel.font = UIFont.themedFont(as: .Regular)
+        checkOutHeader.font = UIFont.themedFont(as: .Regular)
+        checkOutLabel.font = UIFont.themedFont(as: .Regular)
     }
     
     private func setLabels() {

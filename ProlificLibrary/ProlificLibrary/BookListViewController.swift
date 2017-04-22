@@ -74,12 +74,12 @@ final class BookListViewController: UIViewController {
     }
     
     fileprivate func shakeAnimation(for cell: UITableViewCell) {
-        UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: {
+        UIView.animateKeyframes(withDuration: 0.8, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction,.calculationModeLinear], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                cell.transform = CGAffineTransform.init(rotationAngle: 0.05)
+                cell.transform = CGAffineTransform.init(rotationAngle: 0.03)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
-                cell.transform = CGAffineTransform.init(rotationAngle: -0.05)
+                cell.transform = CGAffineTransform.init(rotationAngle: -0.03)
             })
         }, completion: nil)
     }

@@ -28,7 +28,7 @@ struct ProlificAPI {
                 let responseJSON = try JSONSerialization.jsonObject(with:unwrappedData, options: []) as! [[String:Any]]
                 completion(responseJSON)
             } catch {
-                
+                print(error.localizedDescription)
             }
         }
         dataTask.resume()

@@ -126,7 +126,7 @@ extension UpdateBookViewController: UITextFieldDelegate {
                                                 relatedBy: .equal,
                                                 toItem: view,
                                                 attribute: .centerY,
-                                                multiplier: 0.6,
+                                                multiplier: 0.55,
                                                 constant: 0)
         UIView.animate(withDuration: 0.25) {
             self.stackViewYAxisConstraint = newYConstraint

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD1C2EDE1EABDAE000C14F59 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */; };
 		FD2333D41EA6EECD00076B3E /* UpdateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */; };
 		FD2333D61EA8FADA00076B3E /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */; };
 		FD2333D81EA9091500076B3E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D71EA9091500076B3E /* DateExtension.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBookViewController.swift; sourceTree = "<group>"; };
 		FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		FD2333D71EA9091500076B3E /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -55,6 +57,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD1C2ED91EABD2CD00C14F59 /* SupportMethods */ = {
+			isa = PBXGroup;
+			children = (
+				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
+				FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */,
+				FD2333D71EA9091500076B3E /* DateExtension.swift */,
+				FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */,
+			);
+			name = SupportMethods;
+			sourceTree = "<group>";
+		};
+		FD1C2EDA1EABD2EA00C14F59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD4FEF6B1EA54A520023216B /* BooksManager.swift */,
+				FD4FEF6D1EA575540023216B /* Book.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FD1C2EDB1EABD35C00C14F59 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FD4FEF561EA546A80023216B /* BookListViewController.swift */,
+				FD4FEF6F1EA5ADCB0023216B /* DetailViewController.swift */,
+				FD4FEF711EA5AED80023216B /* AddBookViewController.swift */,
+				FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FD1C2EDC1EABD3CB00C14F59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		FD4FEF481EA546A80023216B = {
 			isa = PBXGroup;
 			children = (
@@ -75,16 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				FD4FEF541EA546A80023216B /* AppDelegate.swift */,
-				FD4FEF561EA546A80023216B /* BookListViewController.swift */,
-				FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */,
-				FD4FEF6F1EA5ADCB0023216B /* DetailViewController.swift */,
-				FD4FEF711EA5AED80023216B /* AddBookViewController.swift */,
-				FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */,
-				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
-				FD4FEF6B1EA54A520023216B /* BooksManager.swift */,
-				FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */,
-				FD2333D71EA9091500076B3E /* DateExtension.swift */,
-				FD4FEF6D1EA575540023216B /* Book.swift */,
+				FD1C2EDA1EABD2EA00C14F59 /* Model */,
+				FD1C2EDC1EABD3CB00C14F59 /* View */,
+				FD1C2EDB1EABD35C00C14F59 /* Controllers */,
+				FD1C2ED91EABD2CD00C14F59 /* SupportMethods */,
 				FD4FEF581EA546A80023216B /* Main.storyboard */,
 				FD4FEF5E1EA546A80023216B /* Assets.xcassets */,
 				FD4FEF601EA546A80023216B /* LaunchScreen.storyboard */,
@@ -178,6 +213,7 @@
 				FD4FEF5D1EA546A80023216B /* ProlificLibrary.xcdatamodeld in Sources */,
 				FD2333D61EA8FADA00076B3E /* AlertControllerFactory.swift in Sources */,
 				FD4FEF551EA546A80023216B /* AppDelegate.swift in Sources */,
+				FD1C2EDE1EABDAE000C14F59 /* FontExtension.swift in Sources */,
 				FD4FEF701EA5ADCB0023216B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

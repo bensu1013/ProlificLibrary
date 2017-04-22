@@ -25,7 +25,6 @@ struct AlertControllerFactory {
         let searchTitleAction = UIAlertAction(title: "Search by Title", style: .default) { (action) in
             if let searchText = searchAlert.textFields?[0].text {
                 if searchText != "" {
-                    print("title")
                     BookManager.main.searchTitles(for: searchText)
                     handler()
                 }
