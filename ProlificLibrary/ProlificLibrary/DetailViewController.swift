@@ -19,6 +19,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var checkOutHeader: UILabel!
     @IBOutlet weak var checkOutLabel: UILabel!
+    @IBOutlet weak var checkOutButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,8 @@ final class DetailViewController: UIViewController {
         tagsLabel.font = UIFont.themedFont(as: .Regular)
         checkOutHeader.font = UIFont.themedFont(as: .Regular)
         checkOutLabel.font = UIFont.themedFont(as: .Regular)
+        checkOutButton.titleLabel?.font = UIFont.themedFont(as: .Small)
+        shareButton.titleLabel?.font = UIFont.themedFont(as: .Small)
     }
     
     private func setLabels() {

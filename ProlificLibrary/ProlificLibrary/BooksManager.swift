@@ -25,7 +25,7 @@ final class BookManager {
                 let book = Book(data: data)
                 self.baseList.append(book)
             }
-            self.list = self.baseList
+            self.list = self.baseList.sorted { $0.title < $1.title }
             handler()
         }
     }
@@ -38,7 +38,7 @@ final class BookManager {
                 searchList.append(book)
             }
         }
-        list = searchList
+        list = searchList.sorted { $0.title < $1.title }
     }
     
     //filters list of authors by argument
@@ -49,12 +49,12 @@ final class BookManager {
                 searchList.append(book)
             }
         }
-        list = searchList
+        list = searchList.sorted { $0.title < $1.title }
     }
     
     //clears and potential filters
     func clearSearch() {
-        list = baseList
+        list = baseList.sorted { $0.title < $1.title }
     }
     
     //sets selectedBook property to index of list

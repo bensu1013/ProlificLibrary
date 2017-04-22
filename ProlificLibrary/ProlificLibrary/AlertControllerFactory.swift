@@ -118,7 +118,7 @@ struct AlertControllerFactory {
     
     //alert when leaving a VC with text in textfields
     static func createDone(handler: @escaping () -> () ) -> UIAlertController {
-        let alert = UIAlertController(title: "Leaving?", message: "Incomplete drafts will be disposed of.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Leaving Already?", message: "Incomplete drafts will be disposed of.", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Nevermind", style: .cancel)
         alert.addAction(cancel)
         let confirm = UIAlertAction(title: "Dispose", style: .default) { (action) in

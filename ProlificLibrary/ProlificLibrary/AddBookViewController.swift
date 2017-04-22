@@ -17,6 +17,7 @@ final class AddBookViewController: UIViewController {
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var categoriesTextField: UITextField!
     @IBOutlet weak var stackViewYAxisConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButton: UIButton!
     private var fieldsHasText: Bool {
         return titleTextField.hasText ||
             authorTextField.hasText ||
@@ -64,9 +65,14 @@ final class AddBookViewController: UIViewController {
     
     private func prepareTextFields() {
         titleTextField.delegate = self
+        titleTextField.font = UIFont.themedFont(as: .Regular)
         authorTextField.delegate = self
+        authorTextField.font = UIFont.themedFont(as: .Regular)
         publisherTextField.delegate = self
+        publisherTextField.font = UIFont.themedFont(as: .Regular)
         categoriesTextField.delegate = self
+        categoriesTextField.font = UIFont.themedFont(as: .Regular)
+        submitButton.titleLabel?.font = UIFont.themedFont(as: .Regular)
     }
     
     private func packageBookData() -> [String: Any] {

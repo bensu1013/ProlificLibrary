@@ -102,6 +102,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Prolific Library" id="CHh-5b-nuG">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="gMM-PN-ONY"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="mQV-nF-BIp">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
@@ -226,6 +227,7 @@
                         <outlet property="doneButton" destination="3qO-Tn-9dl" id="9Wu-Di-JOj"/>
                         <outlet property="publisherTextField" destination="fsj-fg-U3O" id="fz4-TN-abm"/>
                         <outlet property="stackViewYAxisConstraint" destination="wyS-ge-e9Q" id="H8h-6B-NRJ"/>
+                        <outlet property="submitButton" destination="Htn-Oz-o9i" id="RWf-xh-wje"/>
                         <outlet property="textFieldStackView" destination="Poy-sD-rCu" id="CTH-vb-cG5"/>
                         <outlet property="titleTextField" destination="GEX-SE-09k" id="uYl-Eb-3ca"/>
                     </connections>
@@ -362,10 +364,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="2Tg-eF-2ht" id="DQ5-Zf-zec"/>
+                        <outlet property="checkOutButton" destination="IHb-Ss-10d" id="8Mr-0f-Qv1"/>
                         <outlet property="checkOutHeader" destination="o78-LD-WAp" id="djJ-AL-s2G"/>
                         <outlet property="checkOutLabel" destination="MJA-Ed-3yT" id="gxv-bU-oak"/>
                         <outlet property="publisherHeader" destination="ebV-wO-PIG" id="HbE-At-Ple"/>
                         <outlet property="publisherLabel" destination="IbB-Q8-Wa8" id="G5A-Sn-iWE"/>
+                        <outlet property="shareButton" destination="ybq-wl-hZy" id="Lqq-2q-5Ug"/>
                         <outlet property="tagsHeader" destination="WsZ-Jd-Bty" id="y9d-cX-PhY"/>
                         <outlet property="tagsLabel" destination="LlF-f3-tnf" id="IBo-gx-2Pk"/>
                         <outlet property="titleLabel" destination="zhU-dc-pRH" id="caj-HD-P7b"/>
@@ -468,6 +472,7 @@
                         <outlet property="categoriesTextField" destination="uP7-In-8Pq" id="BgV-tu-BmE"/>
                         <outlet property="publisherTextField" destination="CDZ-lY-btg" id="Nt6-oS-gKp"/>
                         <outlet property="stackViewYAxisConstraint" destination="TOV-IH-A07" id="EEc-zB-KTo"/>
+                        <outlet property="submitButton" destination="4o1-1o-VZb" id="VgP-hJ-lht"/>
                         <outlet property="textFieldStackView" destination="DOI-Qc-voK" id="HGh-dl-0gq"/>
                         <outlet property="titleTextField" destination="GeM-fH-8yh" id="OkB-wi-IYX"/>
                     </connections>
