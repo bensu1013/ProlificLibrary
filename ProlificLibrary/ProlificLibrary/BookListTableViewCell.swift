@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BookListCellDelegate {
+internal protocol BookListCellDelegate: class {
     func deleteSelected(for cell: UITableViewCell)
 }
 
@@ -18,21 +18,11 @@ final class BookListTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var deleteButtonTrailing: NSLayoutConstraint!
-    var vcDelegate: BookListCellDelegate?
+    weak var vcDelegate: BookListCellDelegate?
     var deleteButtonHiding: Bool = true {
         didSet {
             deleteButtonHiding ? slideDeleteButtonRight() : slideDeleteButtonLeft()
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     @IBAction func deleteButtonAction(_ sender: Any) {

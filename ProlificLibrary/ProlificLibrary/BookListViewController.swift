@@ -65,9 +65,9 @@ final class BookListViewController: UIViewController {
     //Selector method for swipegestures
     func didSwipe(recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == UIGestureRecognizerState.ended {
-            let swipeLocation = recognizer.location(in: self.tableView)
+            let swipeLocation = recognizer.location(in: tableView)
             if let swipedIndexPath = tableView.indexPathForRow(at: swipeLocation),
-                let swipedCell = self.tableView.cellForRow(at: swipedIndexPath) as? BookListTableViewCell {
+                let swipedCell = tableView.cellForRow(at: swipedIndexPath) as? BookListTableViewCell {
                 swipedCell.swipedEvent(recognizer.direction)
             }
         }
@@ -135,7 +135,7 @@ extension BookListViewController: BookListCellDelegate {
                 self.tableView.reloadData()
             }
         }
-        self.present(deleteAlert, animated: true)
+        present(deleteAlert, animated: true)
     }
     
 }

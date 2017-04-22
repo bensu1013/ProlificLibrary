@@ -6,8 +6,8 @@
 //  Copyright © 2017 Benjamin Su. All rights reserved.
 //
 
-import UIKit
 import Social
+import UIKit
 
 final class DetailViewController: UIViewController {
 

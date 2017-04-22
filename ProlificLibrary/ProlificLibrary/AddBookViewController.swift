@@ -33,7 +33,7 @@ final class AddBookViewController: UIViewController {
         if let touch = touches.first {
             let point = touch.location(in: view)
             if !textFieldStackView.frame.contains(point) {
-                self.view.endEditing(true)
+                view.endEditing(true)
             }
         }
     }
@@ -42,7 +42,7 @@ final class AddBookViewController: UIViewController {
         if fieldsHasText {
             presentDoneAlert()
         } else {
-            self.dismiss(animated: true)
+            dismiss(animated: true)
         }
     }
     

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import UIKit
 import Social
+import UIKit
 
 internal enum SubmitAlertMessage: String {
     case add = "No title and author, what are you trying to do?"
