@@ -51,9 +51,12 @@ struct AlertControllerFactory {
     }
     
     //Alert notifying user of complete and utter library implosion
+    //handler available for cancel to ended tableview animation
     static func createBookpocalypse(handler: @escaping () -> () ) -> UIAlertController {
         let deathAlert = UIAlertController(title: "The End is Near", message: "The great fires of Alexandria will pale in comparison!", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Retreat", style: .cancel)
+        let cancel = UIAlertAction(title: "Retreat", style: .cancel) { (action) in
+            handler()
+        }
         let confirm = UIAlertAction(title: "Burn", style: .destructive) { (action) in
             BookManager.main.bookpocalypse {
                 handler()
@@ -127,11 +130,14 @@ struct AlertControllerFactory {
     }
     
     //alert for deleting a single book
+    //handler available for cancel to ended tableview animation
     static func createDelete(handler: @escaping () -> () ) -> UIAlertController {
         let alertTitle = "Pilfer?"
         let alertMessage = "You dare remove this book from the Prolific Library?\nHow could you fathom such a thing?"
         let deleteAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel) { (action) in
+            handler()
+        }
         let confirmAction = UIAlertAction(title: "Yoink!", style: .destructive) { (action) in
             BookManager.main.deleteSelectedBook {
                 handler()

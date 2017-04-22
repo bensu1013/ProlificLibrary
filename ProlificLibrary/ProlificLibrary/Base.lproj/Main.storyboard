@@ -37,7 +37,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-fA-xnR">
-                                                    <rect key="frame" x="337" y="7" width="30" height="30"/>
+                                                    <rect key="frame" x="337" y="-11.5" width="30" height="67"/>
+                                                    <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="16"/>
                                                     <state key="normal" title="X">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0093617555427760735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -46,14 +47,14 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GVd-0P-X4n">
-                                                    <rect key="frame" x="8" y="8" width="322.5" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <rect key="frame" x="8" y="8" width="322.5" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="Author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sZF-0x-uri">
-                                                    <rect key="frame" x="8" y="34.5" width="322.5" height="1"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="8" y="31" width="322.5" height="4.5"/>
+                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -136,7 +137,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htn-Oz-o9i">
                                 <rect key="frame" x="93.5" y="430" width="187.5" height="37.5"/>
-                                <color key="backgroundColor" red="0.70958670453934536" green="0.90646811548223349" blue="0.55363758367213878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.78001028299331665" green="0.89533966779708862" blue="0.47394758462905884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Htn-Oz-o9i" secondAttribute="height" multiplier="10:2" id="DDk-PS-cxT"/>
                                 </constraints>
@@ -251,7 +252,9 @@
                                     <constraint firstAttribute="width" secondItem="IHb-Ss-10d" secondAttribute="height" multiplier="5:1" id="Hdj-FV-Gbj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Check Out"/>
+                                <state key="normal" title="Check Out">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="checkingOut:" destination="3bp-Bb-YWC" eventType="touchUpInside" id="FSi-7G-QrN"/>
                                 </connections>
@@ -304,7 +307,9 @@
                                     <constraint firstAttribute="width" secondItem="ybq-wl-hZy" secondAttribute="height" multiplier="10:3" id="jeC-ub-yhg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Share"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="sharing:" destination="3bp-Bb-YWC" eventType="touchUpInside" id="kV5-H7-gJG"/>
                                 </connections>
@@ -381,7 +386,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o1-1o-VZb">
                                 <rect key="frame" x="93.5" y="422" width="187.5" height="37.5"/>
-                                <color key="backgroundColor" red="0.71099299192428589" green="0.90557354688644409" blue="0.55131441354751587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.62992328158848687" green="0.90557354688644409" blue="0.39236750565435741" alpha="0.60100064212328763" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4o1-1o-VZb" secondAttribute="height" multiplier="10:2" id="0Me-Qc-Pjt"/>
                                 </constraints>
@@ -471,11 +476,12 @@
         <!--Navigation Controller-->
         <scene sceneID="vam-t6-eee">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="zHn-RW-9Zx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zHn-RW-9Zx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kk6-s9-nNW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="G2s-u6-euo">
@@ -488,7 +494,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngm-Ai-2qR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="-64"/>
+            <point key="canvasLocation" x="604" y="-64"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BookListCellDelegate {
-    func deleteSelected()
+    func deleteSelected(for cell: UITableViewCell)
 }
 
 final class BookListTableViewCell: UITableViewCell {
@@ -36,7 +36,7 @@ final class BookListTableViewCell: UITableViewCell {
     }
     
     @IBAction func deleteButtonAction(_ sender: Any) {
-        vcDelegate?.deleteSelected()
+        vcDelegate?.deleteSelected(for: self)
     }
     
     func setLabels(with book: Book) {
