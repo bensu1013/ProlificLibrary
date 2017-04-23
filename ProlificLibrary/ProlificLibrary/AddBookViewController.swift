@@ -65,13 +65,23 @@ final class AddBookViewController: UIViewController {
     
     private func prepareTextFields() {
         titleTextField.delegate = self
+        titleTextField.layer.cornerRadius = titleTextField.frame.height / 5
+        titleTextField.layer.borderWidth = 2
         titleTextField.font = UIFont.themedFont(as: .Regular)
         authorTextField.delegate = self
+        authorTextField.layer.cornerRadius = titleTextField.frame.height / 5
+        authorTextField.layer.borderWidth = 2
         authorTextField.font = UIFont.themedFont(as: .Regular)
         publisherTextField.delegate = self
+        publisherTextField.layer.cornerRadius = titleTextField.frame.height / 5
+        publisherTextField.layer.borderWidth = 2
         publisherTextField.font = UIFont.themedFont(as: .Regular)
         categoriesTextField.delegate = self
+        categoriesTextField.layer.cornerRadius = titleTextField.frame.height / 5
+        categoriesTextField.layer.borderWidth = 2
         categoriesTextField.font = UIFont.themedFont(as: .Regular)
+        submitButton.layer.cornerRadius = submitButton.frame.height / 3
+        submitButton.layer.borderWidth = 2
         submitButton.titleLabel?.font = UIFont.themedFont(as: .Regular)
     }
     

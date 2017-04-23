@@ -138,7 +138,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htn-Oz-o9i">
                                 <rect key="frame" x="93.5" y="410.5" width="187.5" height="37.5"/>
-                                <color key="backgroundColor" red="0.78001028299331665" green="0.89533966779708862" blue="0.47394758462905884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Htn-Oz-o9i" secondAttribute="height" multiplier="10:2" id="DDk-PS-cxT"/>
                                 </constraints>
@@ -304,9 +304,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybq-wl-hZy">
-                                <rect key="frame" x="117" y="417.5" width="140.5" height="42"/>
+                                <rect key="frame" x="117" y="417.5" width="140.5" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ybq-wl-hZy" secondAttribute="height" multiplier="10:3" id="jeC-ub-yhg"/>
+                                    <constraint firstAttribute="width" secondItem="ybq-wl-hZy" secondAttribute="height" multiplier="12:3" id="jeC-ub-yhg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Share">
@@ -393,7 +393,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o1-1o-VZb">
                                 <rect key="frame" x="93.5" y="402.5" width="187.5" height="37.5"/>
-                                <color key="backgroundColor" red="0.62992328158848687" green="0.90557354688644409" blue="0.39236750565435741" alpha="0.60100064212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4o1-1o-VZb" secondAttribute="height" multiplier="10:2" id="0Me-Qc-Pjt"/>
                                 </constraints>

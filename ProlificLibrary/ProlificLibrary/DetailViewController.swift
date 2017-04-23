@@ -65,7 +65,11 @@ final class DetailViewController: UIViewController {
         tagsLabel.font = UIFont.themedFont(as: .Regular)
         checkOutHeader.font = UIFont.themedFont(as: .Regular)
         checkOutLabel.font = UIFont.themedFont(as: .Regular)
+        checkOutButton.layer.cornerRadius = checkOutButton.frame.height / 3
+        checkOutButton.layer.borderWidth = 2
         checkOutButton.titleLabel?.font = UIFont.themedFont(as: .Small)
+        shareButton.layer.cornerRadius = shareButton.frame.height / 3
+        shareButton.layer.borderWidth = 2
         shareButton.titleLabel?.font = UIFont.themedFont(as: .Small)
     }
     
