@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//used for UIFont to set font sizes for themeFont method
 internal enum FontType {
     
     case Title
@@ -31,9 +32,12 @@ internal enum FontType {
     
 }
 
+//method for setting fonts to a theme with choice of scaling fontsizes
 extension UIFont {
+    
     static func themedFont(name: String = "Georgia", as type: FontType) -> UIFont? {
-        let font = UIFont(name: "Georgia", size: type.size())
+        let font = UIFont(name: name, size: type.size())
         return font
     }
+    
 }

@@ -18,7 +18,7 @@ extension Date {
         return currentTime
     }
     
-    //Takes prolific time stamp and hacks it back to current time
+    //Takes prolific time stamp and hacks it back to relevant time
     static func prolificModify(_ time: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

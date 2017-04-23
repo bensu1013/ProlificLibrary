@@ -73,6 +73,7 @@ final class BookListViewController: UIViewController {
         }
     }
     
+    //Shake it like you mean it
     fileprivate func shakeAnimation(for cell: UITableViewCell) {
         UIView.animateKeyframes(withDuration: 0.8, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction,.calculationModeLinear], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
@@ -107,7 +108,7 @@ final class BookListViewController: UIViewController {
     
 }
 
-//MARK: Tableview methods
+//MARK: Tableview Methods
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,6 +125,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+//MARK: BookListCellDelegate
 extension BookListViewController: BookListCellDelegate {
     
     //When delete button in cell is pressed

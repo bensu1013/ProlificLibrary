@@ -49,14 +49,14 @@ final class BookListTableViewCell: UITableViewCell {
         }
     }
     
-    func slideDeleteButtonLeft() {
+    private func slideDeleteButtonLeft() {
         UIView.animate(withDuration: 0.2) { 
             self.deleteButtonTrailing.constant = 0
             self.layoutIfNeeded()
         }
     }
     
-    func slideDeleteButtonRight() {
+    private func slideDeleteButtonRight() {
         UIView.animate(withDuration: 0.2) {
             self.deleteButtonTrailing.constant = -self.deleteButton.bounds.width * 2
             self.layoutIfNeeded()
