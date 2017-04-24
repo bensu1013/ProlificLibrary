@@ -6,6 +6,7 @@
 //  Copyright © 2017 Benjamin Su. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 final class AddBookViewController: UIViewController {
@@ -88,16 +89,16 @@ final class AddBookViewController: UIViewController {
     private func packageBookData() -> [String: Any] {
         var bookData = [String: Any]()
         if titleTextField.hasText {
-            bookData["title"] = titleTextField.text
+            bookData["title"] = TextManipulator.capitalizeWords(in: titleTextField.text!)
         }
         if authorTextField.hasText {
-            bookData["author"] = authorTextField.text
+            bookData["author"] = TextManipulator.capitalizeWords(in: authorTextField.text!)
         }
         if publisherTextField.hasText {
-            bookData["publisher"] = publisherTextField.text
+            bookData["publisher"] = TextManipulator.capitalizeWords(in: publisherTextField.text!)
         }
         if categoriesTextField.hasText {
-            bookData["categories"] = categoriesTextField.text
+            bookData["categories"] = TextManipulator.capitalizeWords(in: categoriesTextField.text!)
         }
         return bookData
     }

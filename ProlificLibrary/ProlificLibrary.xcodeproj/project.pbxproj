@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD1C2EDE1EABDAE000C14F59 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */; };
+		FD1C2EE41EAD9DD000C14F59 /* TextManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C2EE31EAD9DD000C14F59 /* TextManipulator.swift */; };
 		FD2333D41EA6EECD00076B3E /* UpdateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */; };
 		FD2333D61EA8FADA00076B3E /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */; };
 		FD2333D81EA9091500076B3E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D71EA9091500076B3E /* DateExtension.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		FD1C2EE31EAD9DD000C14F59 /* TextManipulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextManipulator.swift; sourceTree = "<group>"; };
 		FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBookViewController.swift; sourceTree = "<group>"; };
 		FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		FD2333D71EA9091500076B3E /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
 				FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */,
+				FD1C2EE31EAD9DD000C14F59 /* TextManipulator.swift */,
 				FD2333D71EA9091500076B3E /* DateExtension.swift */,
 				FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */,
 			);
@@ -162,6 +165,7 @@
 					FD4FEF501EA546A80023216B = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = Y7JKK8T2ED;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -207,6 +211,7 @@
 				FD4FEF721EA5AED80023216B /* AddBookViewController.swift in Sources */,
 				FD4FEF6A1EA547CC0023216B /* ProlificAPI.swift in Sources */,
 				FD4FEF6E1EA575540023216B /* Book.swift in Sources */,
+				FD1C2EE41EAD9DD000C14F59 /* TextManipulator.swift in Sources */,
 				FD2333D41EA6EECD00076B3E /* UpdateBookViewController.swift in Sources */,
 				FD4FEF741EA5B2000023216B /* BookListTableViewCell.swift in Sources */,
 				FD4FEF6C1EA54A520023216B /* BooksManager.swift in Sources */,
@@ -339,11 +344,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Y7JKK8T2ED;
 				INFOPLIST_FILE = ProlificLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = BS.ProlificLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -352,9 +360,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Y7JKK8T2ED;
 				INFOPLIST_FILE = ProlificLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = BS.ProlificLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
