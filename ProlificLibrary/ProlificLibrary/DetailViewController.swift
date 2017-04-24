@@ -56,6 +56,7 @@ final class DetailViewController: UIViewController {
         present(shareAlert, animated: true)
     }
     
+    //setting subview fonts and sizes
     private func prepareLabels() {
         titleLabel.font = UIFont.themedFont(as: .Title)
         authorLabel.font = UIFont.themedFont(as: .Author)
@@ -73,6 +74,7 @@ final class DetailViewController: UIViewController {
         shareButton.titleLabel?.font = UIFont.themedFont(as: .Small)
     }
     
+    //Fill labels with info from selectedBook
     private func setLabels() {
         guard let book = BookManager.main.selectedBook else {
             return

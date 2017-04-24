@@ -67,24 +67,7 @@ final class UpdateBookViewController: UIViewController {
         }
     }
     
-    func setLabels() {
-        guard let book = BookManager.main.selectedBook else {
-            return
-        }
-        titleTextField.placeholder = "Title: " + book.title
-        authorTextField.placeholder = "Author: " + book.author
-        if let publisher = book.publisher {
-            publisherTextField.placeholder = "Publisher: " + publisher
-        } else {
-            publisherTextField.placeholder = "Publisher: N/A"
-        }
-        if let tags = book.categories {
-            categoriesTextField.placeholder = "Tags: " + tags
-        } else {
-            categoriesTextField.placeholder = "Tags: N/A"
-        }
-    }
-    
+    //setting subview fonts and sizes
     private func prepareTextFields() {
         titleTextField.delegate = self
         titleTextField.layer.cornerRadius = titleTextField.frame.height / 5
@@ -107,6 +90,26 @@ final class UpdateBookViewController: UIViewController {
         submitButton.titleLabel?.font = UIFont.themedFont(as: .Regular)
     }
     
+    //Fill labels with info from selectedBook
+    func setLabels() {
+        guard let book = BookManager.main.selectedBook else {
+            return
+        }
+        titleTextField.placeholder = "Title: " + book.title
+        authorTextField.placeholder = "Author: " + book.author
+        if let publisher = book.publisher {
+            publisherTextField.placeholder = "Publisher: " + publisher
+        } else {
+            publisherTextField.placeholder = "Publisher: N/A"
+        }
+        if let tags = book.categories {
+            categoriesTextField.placeholder = "Tags: " + tags
+        } else {
+            categoriesTextField.placeholder = "Tags: N/A"
+        }
+    }
+    
+    //wrapper method to send to api methods
     private func packageBookData() -> [String: Any] {
         var bookData = [String: Any]()
         if titleTextField.hasText {

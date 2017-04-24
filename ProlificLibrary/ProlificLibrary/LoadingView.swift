@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingView: UIView {
+final class LoadingView: UIView {
 
     private var textLogo = UILabel()
     

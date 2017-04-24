@@ -8,4 +8,4 @@ The first steps of the app was to create its API struct and test all its functio
 
 I choose to make it a singleton so it became a central point of information for all my view controllers. The BookManager is also the only class that interactions with the API methods.
 
-To keep as much of the logic separate from the viewcontrollers, an AlertControllerFactory class was born.  It has methods to create all alerts needed in the app with completion handlers to give them logic at their desired destinations.
+To keep as much of the heavy lifting separate from the viewcontrollers, an AlertControllerFactory class was born.  It has methods to create all alerts needed in the app with completion handlers to give them logic at their desired destinations.

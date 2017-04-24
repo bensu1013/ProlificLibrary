@@ -15,6 +15,7 @@ internal enum SubmitAlertMessage: String {
     case update = "You claim to change, but none was written."
 }
 
+//Creates alerts with closures to handle events
 struct AlertControllerFactory {
     
     //Search Alert with textfield and difference actions for search types

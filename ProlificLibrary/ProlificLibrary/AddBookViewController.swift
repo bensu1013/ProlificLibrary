@@ -64,6 +64,7 @@ final class AddBookViewController: UIViewController {
         }
     }
     
+    //setting subview fonts and sizes
     private func prepareTextFields() {
         titleTextField.delegate = self
         titleTextField.layer.cornerRadius = titleTextField.frame.height / 5
@@ -86,6 +87,7 @@ final class AddBookViewController: UIViewController {
         submitButton.titleLabel?.font = UIFont.themedFont(as: .Regular)
     }
     
+    //wrapper method to send to api methods
     private func packageBookData() -> [String: Any] {
         var bookData = [String: Any]()
         if titleTextField.hasText {
