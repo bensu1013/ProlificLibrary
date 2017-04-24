@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD1C2EDE1EABDAE000C14F59 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */; };
-		FD1C2EE41EAD9DD000C14F59 /* TextManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C2EE31EAD9DD000C14F59 /* TextManipulator.swift */; };
+		FD1C2EE61EAE3C7000C14F59 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C2EE51EAE3C7000C14F59 /* LoadingView.swift */; };
 		FD2333D41EA6EECD00076B3E /* UpdateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */; };
 		FD2333D61EA8FADA00076B3E /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */; };
 		FD2333D81EA9091500076B3E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2333D71EA9091500076B3E /* DateExtension.swift */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
-		FD1C2EE31EAD9DD000C14F59 /* TextManipulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextManipulator.swift; sourceTree = "<group>"; };
+		FD1C2EE51EAE3C7000C14F59 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FD2333D31EA6EECD00076B3E /* UpdateBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBookViewController.swift; sourceTree = "<group>"; };
 		FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		FD2333D71EA9091500076B3E /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -64,7 +64,6 @@
 			children = (
 				FD4FEF691EA547CC0023216B /* ProlificAPI.swift */,
 				FD2333D51EA8FADA00076B3E /* AlertControllerFactory.swift */,
-				FD1C2EE31EAD9DD000C14F59 /* TextManipulator.swift */,
 				FD2333D71EA9091500076B3E /* DateExtension.swift */,
 				FD1C2EDD1EABDAE000C14F59 /* FontExtension.swift */,
 			);
@@ -95,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				FD4FEF731EA5B2000023216B /* BookListTableViewCell.swift */,
+				FD1C2EE51EAE3C7000C14F59 /* LoadingView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 				FD4FEF721EA5AED80023216B /* AddBookViewController.swift in Sources */,
 				FD4FEF6A1EA547CC0023216B /* ProlificAPI.swift in Sources */,
 				FD4FEF6E1EA575540023216B /* Book.swift in Sources */,
-				FD1C2EE41EAD9DD000C14F59 /* TextManipulator.swift in Sources */,
+				FD1C2EE61EAE3C7000C14F59 /* LoadingView.swift in Sources */,
 				FD2333D41EA6EECD00076B3E /* UpdateBookViewController.swift in Sources */,
 				FD4FEF741EA5B2000023216B /* BookListTableViewCell.swift in Sources */,
 				FD4FEF6C1EA54A520023216B /* BooksManager.swift in Sources */,

@@ -20,9 +20,13 @@ final class BookListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let loadingView = LoadingView(frame: view.frame)
+        loadingView.animateLoading()
+        view.addSubview(loadingView)
         super.viewWillAppear(animated)
         bookManager.loadBooks {
             DispatchQueue.main.async {
+                loadingView.removeFromSuperview()
                 self.tableView.reloadData()
             }
         }

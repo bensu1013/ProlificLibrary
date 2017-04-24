@@ -110,16 +110,16 @@ final class UpdateBookViewController: UIViewController {
     private func packageBookData() -> [String: Any] {
         var bookData = [String: Any]()
         if titleTextField.hasText {
-            bookData["title"] = TextManipulator.capitalizeWords(in: titleTextField.text!)
+            bookData["title"] = titleTextField.text?.capitalized
         }
         if authorTextField.hasText {
-            bookData["author"] = TextManipulator.capitalizeWords(in: authorTextField.text!)
+            bookData["author"] = authorTextField.text?.capitalized
         }
         if publisherTextField.hasText {
-            bookData["publisher"] = TextManipulator.capitalizeWords(in: publisherTextField.text!)
+            bookData["publisher"] = publisherTextField.text?.capitalized
         }
         if categoriesTextField.hasText {
-            bookData["categories"] = TextManipulator.capitalizeWords(in: categoriesTextField.text!)
+            bookData["categories"] = categoriesTextField.text?.capitalized
         }
         return bookData
     }
